@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>LOGO - Admin Dashboard</title>
+
+  <!-- Bootstrap 5.3 CSS -->
+ <!-- Bootstrap 5 CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Bootstrap Icons -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+<!-- Google Font (اختياري لكن بيخلي الشكل أحلى) -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --primary: #5e60ce;
+    --primary-dark: #4d4fc2;
+    --gradient: linear-gradient(135deg, #5e60ce 0%, #48bfe3 100%);
+  }
+  
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  .navbar {
+    background: var(--gradient) !important;
+  }
+
+  .nav-link {
+    color: rgba(255,255,255,0.9) !important;
+    transition: all 0.25s ease;
+  }
+
+  .nav-link:hover,
+  .nav-link.active {
+    color: white !important;
+    background: rgba(255,255,255,0.15);
+    border-radius: 8px;
+  }
+
+  .dropdown-menu {
+    border-radius: 12px !important;
+  }
+
+  .dropdown-item:hover {
+    background-color: #f8f9fa;
+  }
+
+  .avatar-circle {
+    background: var(--primary-dark);
+  }
+
+  .navbar-toggler-icon {
+    filter: brightness(0) invert(1);
+  }
+</style>
+</head>
+<body class="bg-light">
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-gradient shadow-sm sticky-top">
+  <div class="container-fluid px-4">
+    
+    <!-- Logo -->
+    <a class="navbar-brand d-flex align-items-center fw-bold fs-4" href="#">
+      <span class="text-white me-2"></span> 
+   
+      <small class="ms-2 fs-6 text-white-50">Admin</small>
+    </a>
+
+    <!-- Toggle button for mobile -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Menu items -->
+    <div class="collapse navbar-collapse" id="navbarContent">
+      <div class="navbar-nav ms-auto align-items-lg-center gap-1 gap-lg-3">
+
+        <a class="nav-link px-3" href="admin-dashboard.html">
+          <i class="bi bi-speedometer2 me-1"></i> Dashboard
+        </a>
+
+        <a class="nav-link px-3" href="admin-products.html">
+          <i class="bi bi-box-seam me-1"></i> Products
+        </a>
+
+        <a class="nav-link active px-3 fw-semibold" aria-current="page" href="admin-order-manage.html">
+          <i class="bi bi-cart-check-fill me-1"></i> Orders
+        </a>
+
+
+        <!-- Admin Dropdown -->
+       <div class="nav-item dropdown">
+          <a  class="nav-link dropdown-toggle px-3 d-flex align-items-center gap-2" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <div id="adminAvatar" class="avatar-circle bg-primary text-white d-flex align-items-center justify-content-center" style="width:32px; height:32px; border-radius:50%; font-size:0.9rem; font-weight:600;">
+              
+            </div>
+            <span id="adminName"></span>
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end shadow border-0 mt-2" style="min-width: 220px;">
+          
+          
+            <li><hr class="dropdown-divider"></li>
+            <li>
+              <a id="logoutBtn" class="dropdown-item text-danger d-flex align-items-center gap-3 py-2" href="#">
+                <i class="bi bi-box-arrow-right fs-5"></i>
+                <span>Logout</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+  <!-- Main Content -->
+  <div class="container my-5">
+    <h1 class="mb-4">Order Management</h1>
+
+    <!-- Filters -->
+    <div class="row g-3 mb-4">
+      <div class="col-auto">
+        <select class="form-select">
+          <option>Status: All</option>
+          <option>Pending</option>
+          <option>Processing</option>
+          <option>Completed</option>
+        </select>
+      </div>
+      <div class="col-auto">
+        <select class="form-select">
+          <option>Customer</option>
+          <option>Alice</option>
+          <option>Bob</option>
+          <option>Charlie</option>
+        </select>
+      </div>
+      <div class="col-auto">
+        <input type="text" class="form-control" placeholder="Date Range" />
+      </div>
+    </div>
+
+    <!-- Responsive Table -->
+    <div class="table-responsive">
+      <table class="table table-hover table-bordered align-middle">
+        <thead class="table-light">
+          <tr>
+            <th>Order#</th>
+            <th>Customer</th>
+            <th>Date</th>
+            <th>Total</th>
+            <th>Status</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#orderModal"
+              data-order-num="12345"
+              data-customer="Alice Smith"
+              data-date="Jan 15, 2025"
+              data-status="Pending"
+              data-address="123 Main St, City, 12345"
+              data-phone="555-1234"
+              data-items="Product 1 x2 $199.98\nProduct 2 x1 $149.99"
+              data-subtotal="349.97"
+              data-tax="35.00"
+              data-total="384.97">
+            <td>12345</td>
+            <td>Alice</td>
+            <td>Jan 15</td>
+            <td>$384.97</td>
+            <td><span class="badge bg-warning text-dark">Pending</span></td>
+            <td>
+              <button class="btn btn-sm btn-link text-primary p-0 me-2">View</button>
+              <button class="btn btn-sm btn-link text-primary p-0">Update</button>
+            </td>
+          </tr>
+          <tr>
+            <td>12344</td>
+            <td>Bob</td>
+            <td>Jan 10</td>
+            <td>$199.99</td>
+            <td><span class="badge bg-success">Completed</span></td>
+            <td>
+              <button class="btn btn-sm btn-link text-primary p-0">View</button>
+            </td>
+          </tr>
+          <tr>
+            <td>12343</td>
+            <td>Charlie</td>
+            <td>Jan 8</td>
+            <td>$299.50</td>
+            <td><span class="badge bg-primary">Processing</span></td>
+            <td>
+              <button class="btn btn-sm btn-link text-primary p-0 me-2">View</button>
+              <button class="btn btn-sm btn-link text-primary p-0">Update</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Pagination -->
+    <nav aria-label="Page navigation" class="mt-4">
+      <ul class="pagination justify-content-between">
+        <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+        <li class="page-item"><a class="page-link active" href="#">1</a></li>
+        <li class="page-item"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item"><a class="page-link" href="#">Next</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <!-- Order Detail Modal -->
+  <div class="modal fade" id="orderModal" tabindex="-1" aria-labelledby="orderModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-md">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="orderModalLabel">Order #<span id="modalOrderNum"></span></h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <dl class="row mb-4">
+            <dt class="col-sm-4">Customer</dt>
+            <dd class="col-sm-8" id="modalCustomer"></dd>
+
+            <dt class="col-sm-4">Date</dt>
+            <dd class="col-sm-8" id="modalDate"></dd>
+
+            <dt class="col-sm-4">Status</dt>
+            <dd class="col-sm-8">
+              <select class="form-select form-select-sm" id="modalStatus">
+                <option>Pending</option>
+                <option>Processing</option>
+                <option>Completed</option>
+              </select>
+            </dd>
+          </dl>
+
+          <h6 class="mt-4 mb-2">Items</h6>
+          <div id="modalItems" class="list-group list-group-flush mb-3"></div>
+
+          <hr />
+
+          <div class="text-end small">
+            <p>Subtotal: $<span id="modalSubtotal"></span></p>
+            <p>Tax: $<span id="modalTax"></span></p>
+            <p class="fw-bold">Total: $<span id="modalTotal"></span></p>
+          </div>
+
+          <hr />
+
+          <h6 class="mt-3 mb-2">Shipping</h6>
+          <p id="modalAddress" class="mb-1"></p>
+          <p class="mb-0">Phone: <span id="modalPhone"></span></p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Update Status</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap 5.3 JS Bundle (includes Popper) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+ <script type="module">
+  import { hasRole, getCurrentUser, logout } from "./data/auth.js";
+  import { getAllOrders, updateOrderById } from "./data/orders.js";
+  import { getUserById } from "./data/users.js";
+
+  
+  const authCheck = hasRole("admin");
+  if (authCheck.status === "fail") {
+    window.location.href = "login.html";
+  }
+
+   
+  window.addEventListener("load", async () => {
+    await displayAdminInfo();
+    await loadOrders();
+  });
+ (Avatar)
+  async function displayAdminInfo() {
+    const userRes = await getCurrentUser();
+    if (userRes.status === "success") {
+      const admin = userRes.data;
+      document.getElementById("adminName").textContent = admin.name;
+      document.getElementById("adminAvatar").textContent = admin.name.charAt(0).toUpperCase();
+    }
+  }
+
+  async function loadOrders() {
+    const tbody = document.querySelector("table tbody");
+    tbody.innerHTML = '<tr><td colspan="6" class="text-center">Loading orders...</td></tr>';
+
+    const res = await getAllOrders();
+    if (res.status === "success") {
+      tbody.innerHTML = ""; 
+      
+      const orders = res.data;
+      for (const order of orders) {
+
+        const userRes = await getUserById(order.userId);
+        const customerName = userRes.status === "success" ? userRes.data.name : "Unknown";
+
+        const row = document.createElement("tr");
+        row.style.cursor = "pointer";
+        row.innerHTML = `
+          <td>${order.id}</td>
+          <td>${customerName}</td>
+          <td>${new Date(order.createdAt).toLocaleDateString()}</td>
+          <td>$${order.totalPrice.toFixed(2)}</td>
+          <td>${getStatusBadge(order.status)}</td>
+          <td>
+            <button class="btn btn-sm btn-outline-primary view-btn" data-id="${order.id}">
+              <i class="bi bi-eye"></i> View
+            </button>
+          </td>
+        `;
+
+        
+        row.addEventListener("click", () => openOrderModal(order, customerName));
+        tbody.appendChild(row);
+      }
+    }
+  }
+
+   
+  function getStatusBadge(status) {
+    const colors = {
+      pending: "bg-warning text-dark",
+      processing: "bg-primary",
+      completed: "bg-success",
+      shipped: "bg-info"
+    };
+    return `<span class="badge ${colors[status] || "bg-secondary"}">${status}</span>`;
+  }
+
+ 
+  async function openOrderModal(order, customerName) {
+    const modal = new bootstrap.Modal(document.getElementById('orderModal'));
+    
+    document.getElementById('modalOrderNum').textContent = order.id;
+    document.getElementById('modalCustomer').textContent = customerName;
+    document.getElementById('modalDate').textContent = new Date(order.createdAt).toLocaleString();
+    document.getElementById('modalStatus').value = order.status;
+    document.getElementById('modalAddress').textContent = `${order.shippingInfo.address}, ${order.shippingInfo.city}`;
+    document.getElementById('modalPhone').textContent = order.shippingInfo.phone;
+    document.getElementById('modalSubtotal').textContent = order.subtotal.toFixed(2);
+    document.getElementById('modalTax').textContent = order.tax.toFixed(2);
+    document.getElementById('modalTotal').textContent = order.totalPrice.toFixed(2);
+
+    // عرض المنتجات داخل المودال
+    const itemsDiv = document.getElementById('modalItems');
+    itemsDiv.innerHTML = order.items.map(item => `
+      <div class="list-group-item d-flex justify-content-between align-items-center">
+        <span>${item.name} <small class="text-muted">x${item.quantity}</small></span>
+        <span>$${(item.price * item.quantity).toFixed(2)}</span>
+      </div>
+    `).join('');
+
+    // تفعيل زرار التحديث داخل المودال
+    const updateBtn = document.querySelector("#orderModal .btn-primary");
+    updateBtn.onclick = async () => {
+      const newStatus = document.getElementById('modalStatus').value;
+      const updateRes = await updateOrderById(order.id, { status: newStatus });
+      if (updateRes.status === "success") {
+        alert("Order status updated!");
+        modal.hide();
+        loadOrders(); 
+      }
+    };
+
+    modal.show();
+  }
+
+//ز(Logout)
+  document.getElementById("logoutBtn").addEventListener("click", (e) => {
+    e.preventDefault();
+    if (confirm("Are you sure you want to logout?")) {
+      logout();
+      window.location.href = "login.html";
+    }
+  });
+
+</script>
+
+</body>
+</html>

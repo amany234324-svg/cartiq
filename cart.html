@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Shopping Cart - Attire</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link rel="stylesheet" href="css/home.css">
+
+  <style>
+    body { background-color: #f8f9fa; }
+    .cart-item {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      margin-bottom: 20px;
+      padding: 15px;
+    }
+    .cart-item img {
+      width: 90px;
+      height: 90px;
+      object-fit: cover;
+      border-radius: 8px;
+      border: 1px solid #eee;
+    }
+    .item-name { font-weight: 600; color: #222; }
+    .item-price { color: #e63946; font-weight: bold; }
+    .qty-btn {
+      width: 35px;
+      height: 35px;
+      border-radius: 50%;
+      background: #f8f9fa;
+      border: 1px solid #ccc;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      user-select: none;
+    }
+    .qty-input {
+      width: 60px;
+      text-align: center;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      padding: 4px;
+    }
+    .remove-btn {
+      color: #dc3545;
+      font-size: 1.4rem;
+      cursor: pointer;
+    }
+    .remove-btn:hover { color: #c82333; }
+    .summary-box {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      padding: 25px;
+    }
+    .summary-row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 12px;
+      font-size: 1.05rem;
+    }
+    .total-row {
+      font-size: 1.3rem;
+      font-weight: bold;
+      border-top: 2px solid #eee;
+      padding-top: 15px;
+      margin-top: 10px;
+    }
+    .btn-checkout {
+      background: #0d6efd;
+      color: white;
+      font-weight: 600;
+      padding: 14px 40px;
+      font-size: 1.1rem;
+    }
+    .btn-checkout:hover { background: #0b5ed7; }
+    .btn-checkout:disabled { opacity: 0.6; cursor: not-allowed; }
+  </style>
+</head>
+<body>
+
+<!-- مكان الـ navbar الموحد -->
+<div id="navbar-placeholder"></div>
+
+<div class="container my-5 pt-5">
+  <h2 class="text-center mb-5 fw-bold">Your Shopping Cart</h2>
+
+  <div id="cart-items-list" class="mb-5"></div>
+
+  <!-- Summary -->
+  <div class="summary-box mx-auto" style="max-width: 480px;">
+    <div class="summary-row">
+      <span>Subtotal:</span>
+      <span id="subtotal">EGP 0.00</span>
+    </div>
+    <div class="summary-row">
+      <span>Tax (10%):</span>
+      <span id="tax">EGP 0.00</span>
+    </div>
+    <div class="summary-row total-row">
+      <span>Total:</span>
+      <span id="grand-total" class="text-success">EGP 0.00</span>
+    </div>
+
+    <div class="d-grid mt-4">
+      <button 
+        id="checkoutBtn" 
+        class="btn btn-checkout btn-lg"
+        onclick="proceedToCheckout()"
+        disabled
+      >
+        <i class="fas fa-arrow-right me-2"></i> Proceed to Checkout
+      </button>
+    </div>
+
+    <div class="text-center mt-3">
+      <a href="collection.html" class="text-muted small">← Continue Shopping</a>
+    </div>
+  </div>
+</div>
+
+<script>
+// تحميل الـ navbar الموحد (من الملف navbar.html)
+fetch('navbar.html')
+  .then(response => response.text())
+  .then(data => {
+    document.getElementById('navbar-placeholder').innerHTML = data;
+  })
+  .catch(err => console.error('Error loading navbar:', err));
+</script>
+
+<script type="module">
+import {
+  getCurrentUserCartPopulated,
+  updateCartItem,
+  removeFromCart
+} from "./data/cart.js";
+
+import { isAuthenticated } from "./data/auth.js";
+
+
+// ================= DOM =================
+const itemsList = document.getElementById("cart-items-list");
+const subtotalEl = document.getElementById("subtotal");
+const taxEl = document.getElementById("tax");
+const grandTotalEl = document.getElementById("grand-total");
+const checkoutBtn = document.getElementById("checkoutBtn");
+
+
+// ================= UPDATE NAVBAR CART COUNT =================
+async function updateCartCount() {
+  const cartCountEl = document.getElementById("cart-count");
+  if (!cartCountEl) return;
+
+  const cartRes = await getCurrentUserCartPopulated();
+
+  if (cartRes.status === "success" && cartRes.data?.items) {
+    const total = cartRes.data.items.reduce(
+      (sum, item) => sum + item.quantity,
+      0
+    );
+
+    cartCountEl.textContent = total;
+  } else {
+    cartCountEl.textContent = "0";
+  }
+}
+
+
+// ================= RENDER CART =================
+async function renderCart() {
+  itemsList.innerHTML = `
+    <div class="text-center py-5">
+      <div class="spinner-border"></div>
+      <p class="mt-3">Loading your cart...</p>
+    </div>
+  `;
+
+  const result = await getCurrentUserCartPopulated();
+
+  if (result.status !== "success") {
+    itemsList.innerHTML = `<h5 class="text-danger text-center">Failed to load cart</h5>`;
+    updateSummary(0);
+    checkoutBtn.disabled = true;
+    return;
+  }
+
+  const items = result.data.items || [];
+
+  if (items.length === 0) {
+    itemsList.innerHTML = `
+      <div class="text-center py-5">
+        <i class="fas fa-shopping-cart fa-4x text-muted mb-3"></i>
+        <h5>Your cart is empty</h5>
+        <a href="collection.html" class="btn btn-primary mt-3">Start Shopping</a>
+      </div>
+    `;
+    updateSummary(0);
+    checkoutBtn.disabled = true;
+    return;
+  }
+
+  itemsList.innerHTML = "";
+  let subtotal = 0;
+
+  items.forEach(item => {
+    const price = Number(item.price) || 0;
+    const qty = Number(item.quantity) || 1;
+    const itemTotal = price * qty;
+    
+
+    subtotal += itemTotal;
+
+    itemsList.innerHTML += `
+      <div class="cart-item d-flex align-items-center flex-wrap gap-3">
+        <img src="${item.image || "https://via.placeholder.com/90"}">
+
+        <div class="flex-grow-1">
+          <div class="item-name">${item.name}</div>
+          <div class="item-price">EGP ${price.toFixed(2)}</div>
+        </div>
+
+        <div class="d-flex align-items-center gap-2">
+          <button class="qty-btn" onclick="changeQty('${item.id}', -1)">-</button>
+          <input type="number" class="qty-input" value="${qty}" readonly>
+          <button class="qty-btn" onclick="changeQty('${item.id}', 1)">+</button>
+        </div>
+
+        <div class="ms-auto fw-bold">
+          EGP ${itemTotal.toFixed(2)}
+          <i class="fas fa-trash remove-btn ms-3" onclick="removeItem('${item.id}')"></i>
+        </div>
+      </div>
+    `;
+  });
+
+  updateSummary(subtotal);
+  checkoutBtn.disabled = false;
+  updateCartCount(); // ← مهم جداً
+}
+
+
+// ================= CHANGE QUANTITY =================
+window.changeQty = async (productId, delta) => {
+  const cartRes = await getCurrentUserCartPopulated();
+  if (cartRes.status !== "success") return;
+
+  const item = cartRes.data.items.find(i => String(i.id) === String(productId));
+  if (!item) return;
+
+  let newQty = item.quantity + delta;
+  if (newQty < 1) newQty = 1;
+
+  const res = await updateCartItem(productId, newQty);
+
+  if (res.status === "success") {
+    renderCart();
+  }
+};
+
+
+// ================= REMOVE ITEM =================
+window.removeItem = async (productId) => {
+  if (!confirm("Remove this item?")) return;
+
+  const res = await removeFromCart(productId);
+
+  if (res.status === "success") {
+    renderCart();
+  }
+};
+
+
+// ================= UPDATE TOTAL =================
+function updateSummary(subtotal) {
+  const tax = subtotal * 0.14;
+  const grand = subtotal + tax;
+
+  subtotalEl.textContent = `EGP ${subtotal.toFixed(2)}`;
+  taxEl.textContent = `EGP ${tax.toFixed(2)}`;
+  grandTotalEl.textContent = `EGP ${grand.toFixed(2)}`;
+}
+
+
+// ================= PAGE START =================
+document.addEventListener("DOMContentLoaded", async () => {
+  const auth = isAuthenticated();
+
+  if (auth.status !== "success") {
+    alert("Please login first");
+    window.location.href = "login.html";
+    return;
+  }
+
+  await renderCart();
+});
+// ================= GO TO CHECKOUT =================
+window.proceedToCheckout = async () => {
+  const cartRes = await getCurrentUserCartPopulated();
+
+  if (cartRes.status !== "success" || !cartRes.data?.items?.length) {
+    alert("Cart is empty");
+    return;
+  }
+
+  // نحفظ السلة في localStorage علشان صفحة checkout تقراها
+//  localStorage.setItem("cart", JSON.stringify(cartRes.data.items));
+
+  // نروح لصفحة checkout
+  window.location.href = "checkout.html";
+};
+
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

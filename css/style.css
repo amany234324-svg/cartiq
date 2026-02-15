@@ -1,0 +1,107 @@
+body {
+    background: linear-gradient(to bottom, #cce5ff, #f8f9fa);
+}
+
+.login-card {
+    max-width: 500px;
+    width: 100%;
+    border-radius: 12px;
+}
+
+.logo {
+    width: 150px;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 10px;
+    top: 70%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #6c757d;
+}
+
+/*register*/
+.toggle-confirm {
+    position: absolute;
+    right: 10px;
+    top: 70%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #6c757d;
+}
+
+
+/*admin-dashboard*/
+body {
+    background: linear-gradient(to bottom, #cce5ff, #f8f9fa);
+}
+
+/* Navbar */
+.navbar {
+    background-color: #ffffff !important;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+/* Dashboard title */
+h2 {
+    font-weight: 600;
+}
+
+/* Metric cards */
+.card {
+    border: none;
+    border-radius: 12px;
+    transition: 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+/* Numbers inside cards */
+.card h3 {
+    font-weight: bold;
+    margin-top: 10px;
+    color: #0d6efd;
+}
+
+/* Table */
+.table {
+    background-color: white;
+    border-radius: 10px;
+    overflow: hi
+}
+
+/*admin-products*/
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: linear-gradient(to bottom, #cce5ff, #f8f9fa);
+}
+
+
+.navbar {
+    background-color: #212529;
+}
+
+.navbar-brand,
+.nav-link,
+.dropdown-toggle {
+    color: white !important;
+}
+
+.table img {
+    border-radius: 6px;
+}
+
+.low-stock {
+    color: red;
+    font-weight: bold;
+}
+
+.modal img {
+    max-height: 150px;
+    margin-top: 10px;
+}

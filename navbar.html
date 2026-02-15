@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Attire - Fashion Store</title>
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <style>
+    :root {
+      --primary: #5e60ce;
+      --primary-dark: #4d4fc2;
+      --primary-light: #48bfe3;
+      --gradient: linear-gradient(135deg, #5e60ce 0%, #48bfe3 100%);
+      --text-dark: #1e1e2f;
+      --text-muted: #6c757d;
+    }
+
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background: #f8f9fc;
+    }
+
+    .navbar {
+      background: white;
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+      transition: all 0.35s ease;
+    }
+
+    .navbar.scrolled {
+      background: rgba(255,255,255,0.97) !important;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 6px 20px rgba(94,96,206,0.12) !important;
+    }
+
+    .navbar-brand {
+      font-weight: 700;
+      letter-spacing: 1px;
+      color: var(--primary) !important;
+    }
+
+    .nav-link {
+      color: var(--text-dark) !important;
+      font-weight: 500;
+      padding: 0.65rem 1.15rem !important;
+      transition: all 0.3s ease;
+      border-radius: 8px;
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+      color: white !important;
+      background: var(--primary) !important;
+    }
+
+    .auth-link {
+      color: var(--text-dark) !important;
+      font-weight: 500;
+      transition: all 0.3s;
+    }
+
+    .auth-link:hover {
+      color: var(--primary) !important;
+    }
+
+    .btn-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-muted);
+      transition: all 0.25s ease;
+      position: relative;
+    }
+
+    .btn-icon:hover {
+      background: rgba(94, 96, 206, 0.08);
+      color: var(--primary);
+    }
+
+    .badge {
+      background-color: var(--primary) !important;
+      font-size: 0.68rem;
+      min-width: 18px;
+      height: 18px;
+      padding: 0.3em 0.55em;
+    }
+
+    .navbar-toggler {
+      border: none;
+    }
+
+    .navbar-toggler-icon {
+      filter: brightness(0.6);
+    }
+
+    @media (max-width: 991px) {
+      .nav-btns {
+        margin: 1rem 0;
+      }
+      .navbar-nav {
+        padding: 1.2rem 0;
+      }
+      .nav-link {
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg fixed-top">
+  <div class="container">
+
+    <!-- Logo -->
+    <a class="navbar-brand d-flex align-items-center" href="home.html">
+      <img src="img/logo.png" alt="Attire" width="48" class="me-2">
+      <span>Attire</span>
+    </a>
+
+    <!-- Right side icons + toggler -->
+    <div class="nav-btns order-lg-2 d-flex align-items-center gap-3 gap-lg-4 ms-auto ms-lg-0">
+
+      <!-- Login / User Profile -->
+      <a href="login.html" class="auth-link text-decoration-none d-flex align-items-center gap-2" id="auth-link">
+        <i class="bi bi-person-circle fs-4"></i>
+        <span>Login</span>
+      </a>
+
+      <!-- Wishlist -->
+      <a href="#" class="btn-icon" title="Wishlist">
+        <i class="bi bi-heart fs-4"></i>
+        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill" id="wishlist-count">0</span>
+      </a>
+
+      <!-- Cart -->
+      <a href="cart.html" class="btn-icon position-relative" title="Shopping Cart">
+        <i class="bi bi-bag fs-4"></i>
+        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill" id="cart-count">0</span>
+      </a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMainMenu" aria-controls="navbarMainMenu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+
+    <!-- Main navigation links -->
+    <div class="collapse navbar-collapse order-lg-1" id="navbarMainMenu">
+      <ul class="navbar-nav mx-auto text-center">
+        <li class="nav-item">
+          <a class="nav-link" href="home.html">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="collection.html">Products</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="customer-order.html">Orders</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="blogs.html">Blogs</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="about.html">About</a>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+</nav>
+
+<!-- Spacer to prevent content from being hidden under fixed navbar -->
+<div style="height: 85px;"></div>
+
+<script>
+// Add shadow & blur effect on scroll
+window.addEventListener("scroll", () => {
+  document.querySelector(".navbar").classList.toggle("scrolled", window.scrollY > 40);
+});
+
+// Simple user state handling (login → username + logout)
+document.addEventListener("DOMContentLoaded", () => {
+  const authLink = document.getElementById("auth-link");
+  if (!authLink) return;
+
+  const username = localStorage.getItem("userName") || "";
+
+  if (username) {
+    authLink.innerHTML = `
+      <i class="bi bi-person-fill fs-4"></i>
+      <span>Hi, ${username}</span>
+    `;
+    authLink.href = "#"; // You can change this to "profile.html" later
+
+    authLink.addEventListener("click", (e) => {
+      e.preventDefault();
+      if (confirm("Are you sure you want to log out?")) {
+        localStorage.removeItem("token");
+        localStorage.removeItem("userName");
+        window.location.href = "login.html";
+      }
+    });
+  }
+});
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

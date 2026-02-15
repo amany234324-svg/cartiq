@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Attire Home</title>
+<!-- fontawesome cdn -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<!-- bootstrap css -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+
+<!-- custom css -->
+<link rel = "stylesheet" href = "css/home.css">
+
+</head>
+<body>
+
+<div class="top-bar  text-white py-2">
+  <div class="container">
+    <div class="row align-items-center g-3">
+
+      <!-- Search - takes most space on all screens -->
+      <div class="col-12 col-md-8 col-lg-8 mx-auto mx-md-0  text-center">
+        <form action="collection.html" method="get" class="search-form" id="searchForm">
+          <div class="input-group input-group-lg">
+            <input
+              type="search"
+              name="q"
+              class="form-control border-0 shadow-sm col-lg-8"
+              placeholder="Search products, categories, brands..."
+              aria-label="Search products"
+              id="searchInput"
+              required
+            >
+            <!-- <button
+              type="submit"
+              class="btn btn-primary px-4"
+              id="searchBtn"
+              aria-label="Submit search"
+            >
+              <i class="bi bi-search"></i>
+            </button> -->
+          </div>
+        </form>
+      </div>
+
+      <!-- Optional extra space on large screens (can add phone / promo / language later) -->
+      <div class="col-md-4 col-lg-3 d-none d-md-block text-end">
+        <!-- You can put here: Free Shipping • +20 123 456 789 • EN/AR selector -->
+        <small class="text-white-75">Free shipping on orders over $50</small>
+      </div>
+
+    </div>
+  </div>
+</div>
+<!-- navbar -->
+<div id="navbar-placeholder"></div>
+
+  <!-- باقي محتوى الصفحة هنا -->
+
+  <!-- في نهاية الـ body قبل أي script -->
+ 
+<!-- end of navbar -->
+
+<!-- header -->
+<header id = "header" class = "vh-100 carousel slide" data-bs-ride = "carousel" style = "padding-top: 104px;">
+<div class = "container h-100 d-flex align-items-center carousel-inner">
+<div class = "text-center carousel-item active">
+<h2 class = "text-capitalize text-white">best collection</h2>
+<h1 class = "text-uppercase py-2 fw-bold text-white">new arrivals</h1>
+<a href = "collection.html" class = "btn btn-primary mt-3 text-uppercase">shop now</a>
+</div>
+<div class = "text-center carousel-item">
+<h2 class = "text-capitalize text-white">best price & offer</h2>
+<h1 class = "text-uppercase py-2 fw-bold text-white">new season</h1>
+<a href = "checkout.html" class = "btn btn-primary  mt-3 text-uppercase">buy now</a>
+</div>
+</div>
+
+<button class = "carousel-control-prev" type = "button" data-bs-target="#header" data-bs-slide = "prev">
+<span class = "carousel-control-prev-icon"></span>
+</button>
+<button class = "carousel-control-next" type = "button" data-bs-target="#header" data-bs-slide = "next">
+<span class = "carousel-control-next-icon"></span>
+</button>
+</header>
+<!-- end of header -->
+ <!--main-->
+
+<section class="py-5 mt-5">
+  <div class="container pt-5">
+    <div class="section-title text-center mb-5">
+      <h2>New Collection</h2>
+    </div>
+
+    <!-- Filters -->
+    <div class="d-flex flex-wrap justify-content-center mb-5 filter-button-group">
+      <button type="button" class="btn btn-outline-primary m-2 active-filter-btn" data-filter="*">All</button>
+      <button type="button" class="btn btn-outline-primary m-2" data-filter=".best">Best Sellers</button>
+      <button type="button" class="btn btn-outline-primary m-2" data-filter=".feat">Featured</button>
+      <button type="button" class="btn btn-outline-primary m-2" data-filter=".new">New Arrivals</button>
+    </div>
+
+    <!-- Products grid -->
+    <div class="row collection-list g-4" id="products-container">
+      <!-- Products will be inserted here by JavaScript -->
+    </div>
+  </div>
+</section>
+
+<!-- Products -->
+<main class="container my-5">
+  <div class="row g-4" id="products"></div>
+</main>
+<footer class="footer py-5 mt-5">
+  <div class="container">
+    <div class="row text-center text-md-start">
+
+      <!-- About / Logo -->
+      <div class="col-md-4 mb-4">
+        <h5 class="mb-3">Attire</h5>
+        <p>Your one-stop shop for the latest fashion trends. Quality products at great prices!</p>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="col-md-4 mb-4">
+        <h5 class="mb-3">Quick Links</h5>
+        <ul class="list-unstyled">
+          <li><a href="Home.html" class="footer-link">Home</a></li>
+          <li><a href="collection.html" class="footer-link">Products</a></li>
+          <li><a href="about.html" class="footer-link">About</a></li>
+          <li><a href="blogs.html" class="footer-link">Blogs</a></li>
+          <li><a href="#special" class="footer-link">Specials</a></li>
+        </ul>
+      </div>
+
+      <!-- Social Icons -->
+      <div class="col-md-4 mb-4">
+        <h5 class="mb-3">Follow Us</h5>
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-pinterest"></i></a>
+        </div>
+      </div>
+
+    </div>
+
+    <hr class="mt-4">
+    <p class="text-center mt-3 mb-0">&copy; 2026 Attire. All Rights Reserved.</p>
+  </div>
+</footer>
+
+
+
+
+<!-- jquery -->
+<!-- ... باقي الـ HTML كما هو حتى نهاية collection-list ... -->
+
+<!-- الجزء الخاص بالـ script (استبدلي الجزء القديم بهذا) -->
+<!-- <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script> -->
+
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="https://unpkg.com/imagesloaded@5/imagesloaded.pkgd.min.js"></script>
+<script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script type="module" src="js/script.js"></script>
+<!-- <script type="module">
+
+// ================= IMPORT API (لازم أول حاجة) =================
+import { isAuthenticated, getCurrentUser } from './data/auth.js';
+import { getAllProducts } from './data/products.js';
+import { getCurrentUserCartPopulated, addToCart } from './data/cart.js';
+
+
+// ================= DOM READY =================
+document.addEventListener("DOMContentLoaded", () => {
+
+  const productsContainer = document.getElementById("products-container");
+  const cartCountEl = document.getElementById("cart-count");
+
+  if (!productsContainer) {
+    console.error("products-container not found");
+    return;
+  }
+
+  // ================= LOAD NAVBAR =================
+  fetch('navbar.html')
+    .then(res => res.text())
+    .then(data => {
+      document.getElementById('navbar-placeholder').innerHTML = data;
+      updateUserUI();
+      updateCartCount();
+    })
+    .catch(err => console.error("Navbar load error:", err));
+
+
+  // ================= UPDATE USER NAME =================
+  async function updateUserUI() {
+    const auth = isAuthenticated();
+    if (auth.status !== "success") return;
+
+    const userRes = await getCurrentUser();
+
+    if (userRes.status === "success") {
+      const userName = userRes.data.name || "User";
+      const loginLink = document.getElementById("loginLink");
+
+      if (loginLink) {
+        loginLink.innerHTML = `
+          Welcome ${userName}
+          <button onclick="logout()" class="btn btn-sm btn-danger ms-2">
+            Logout
+          </button>
+        `;
+        loginLink.href = "#";
+      }
+    }
+  }
+
+
+  // ================= LOGOUT =================
+  window.logout = function () {
+    localStorage.clear();
+    window.location.reload();
+  };
+
+
+  // ================= UPDATE CART COUNT =================
+async function updateCartCount() {
+  const cartCountEl = document.getElementById("cart-count");
+  if (!cartCountEl) return;
+
+  const cartRes = await getCurrentUserCartPopulated();
+
+  if (cartRes.status === "success" && cartRes.data?.items) {
+    const total = cartRes.data.items.reduce(
+      (sum, item) => sum + item.quantity,
+      0
+    );
+
+    cartCountEl.textContent = total;
+  } else {
+    cartCountEl.textContent = "0";
+  }
+}
+  // ================= LOAD PRODUCTS =================
+ async function loadProducts() {
+  productsContainer.innerHTML = `
+    <div class="col-12 text-center py-5">
+      <div class="spinner-border"></div>
+    </div>
+  `;
+
+  const result = await getAllProducts();
+
+  if (result.status !== "success") {
+    productsContainer.innerHTML = `<h3>Error loading products</h3>`;
+    return;
+  }
+
+  productsContainer.innerHTML = "";
+
+  result.data.forEach(product => {
+
+    let classes = "grid-item col-6 col-md-4 col-lg-3";
+
+    if (product.isBest) classes += " best";
+    if (product.isFeatured) classes += " feat";
+    if (product.isNew) classes += " new";
+
+    const html = `
+      <div class="${classes}">
+        <div class="card h-100">
+          <a href="details.html?id=${product.id}" class="text-decoration-none">
+            <img src="${product.image}" class="card-img-top"></a>
+          <div class="card-body text-center">
+            <h5>${product.name}</h5>
+            <p>${product.price} EGP</p>
+            <button class="btn btn-primary add-to-cart" data-id="${product.id}">
+              Add to Cart
+            </button>
+          </div>
+        </div>
+      </div>
+    `;
+
+    productsContainer.insertAdjacentHTML("beforeend", html);
+  });
+
+  // تشغيل الفلتر
+  const $grid = $("#products-container").isotope({
+    itemSelector: ".grid-item",
+    layoutMode: "fitRows"
+  });
+
+  $(".filter-button-group").on("click", "button", function () {
+    $(".filter-button-group .btn").removeClass("active-filter-btn");
+    $(this).addClass("active-filter-btn");
+
+    const filterValue = $(this).attr("data-filter");
+    $grid.isotope({ filter: filterValue });
+  });
+}
+
+  // ================= ADD TO CART =================
+  productsContainer.addEventListener("click", async (e) => {
+    if (!e.target.classList.contains("add-to-cart")) return;
+
+    const auth = isAuthenticated();
+
+    if (auth.status !== "success") {
+      alert("Please login first");
+      window.location.href = "login.html";
+      return;
+    }
+
+    const productId = e.target.dataset.id;
+
+    const res = await addToCart(productId, 1);
+
+    if (res.status === "success") {
+      alert("Added to cart");
+      updateCartCount();
+    } else {
+      alert(res.message || "Failed");
+    }
+  });
+
+  loadProducts();
+
+});
+
+</script> -->
+
+</body>
+</html>
