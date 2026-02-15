@@ -6,13 +6,15 @@
 //     window.location.href = "login.html";
 // }
 
-import { hasRole , getCurrentUser, logout } from "./data/auth.js";
-import { getAllOrders, getOrdersStatistics } from "./data/orders.js";
-import { getUserById } from "./data/users.js";
+import { hasRole, getCurrentUser, logout } from './data/auth.js';
+import { getAllOrders, getOrdersStatistics } from './data/orders.js';
+import { getUserById } from './data/users.js';
 
-if (hasRole("admin").status === "fail") {
+const isAuthorized = hasRole('admin');
+
+if (isAuthorized.status === 'fail') {
   // console.log(hasRole('admin').message)
-  window.location.href = "login.html";
+  window.location.href = 'login.html';
 }
 
 // Logout
@@ -52,53 +54,52 @@ if (hasRole("admin").status === "fail") {
 //     alert("Error loading dashboard data");
 // });
 
-window.addEventListener("load", async () => {
+window.addEventListener('load', async () => {
   const userRes = await getCurrentUser();
-  if (userRes.status === "success") {
+  if (userRes.status === 'success') {
     const adminData = userRes.data;
     const adminName = adminData.name;
-    
-  
-    document.getElementById("adminName").textContent = adminName;
-    
 
-    document.getElementById("adminAvatar").textContent = adminName.charAt(0).toUpperCase();
+    document.getElementById('adminName').textContent = adminName;
+
+    document.getElementById('adminAvatar').textContent = adminName
+      .charAt(0)
+      .toUpperCase();
   }
 
   // ---   Logout ---
-  document.getElementById("logoutBtn").addEventListener("click", (e) => {
+  document.getElementById('logoutBtn').addEventListener('click', (e) => {
     e.preventDefault();
-    const res = logout(); 
-    if (res.status === "success") {
-      window.location.href = "login.html";
+    const res = logout();
+    if (res.status === 'success') {
+      window.location.href = 'login.html';
     }
   });
   const res = await getOrdersStatistics();
 
   console.log(res);
-  if (res.status !== "success") {
-
+  if (res.status !== 'success') {
     // do something
   }
 
-  document.getElementById("totalProducts").textContent = res.data.totalProducts;
-  document.getElementById("totalOrders").textContent = res.data.totalOrders;
-  document.getElementById("totalRevenue").textContent =
-    "$" + res.data.totalRevenue;
-  document.getElementById("pendingOrders").textContent = res.data.pendingOrders;
-  document.getElementById("customers").textContent = res.data.customers;
+  document.getElementById('totalProducts').textContent = res.data.totalProducts;
+  document.getElementById('totalOrders').textContent = res.data.totalOrders;
+  document.getElementById('totalRevenue').textContent =
+    '$' + res.data.totalRevenue;
+  document.getElementById('pendingOrders').textContent = res.data.pendingOrders;
+  document.getElementById('customers').textContent = res.data.customers;
 
-  const table = document.getElementById("ordersTable");
+  const table = document.getElementById('ordersTable');
 
   const res2 = await getAllOrders();
 
-  if (res2.status === "success") {
+  if (res2.status === 'success') {
     const orders = res2.data.slice(0, 6);
     for (const order of orders) {
       const user = await getUserById(order.userId);
       let username = user?.data?.name;
-      if (user.status === "fail") {
-        username = "Deleted User";
+      if (user.status === 'fail') {
+        username = 'Deleted User';
       }
       const row = `
                 <tr>

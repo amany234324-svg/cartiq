@@ -239,7 +239,9 @@ async function getOrdersStatistics() {
   let totalRevenue = 0;
   let pendingOrders = 0;
   orders.data.forEach((order) => {
-    totalRevenue += order.totalPrice;
+    if (order.status === 'completed') {
+      totalRevenue += order.totalPrice;
+    }
     if (order.status === 'pending') pendingOrders++;
   });
 
