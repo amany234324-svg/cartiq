@@ -127,7 +127,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const html = `
       <div class="${classes}">
-        <div class="card h-100">
+        <div class="card h-100 product-card">
           <a href="details.html?id=${product.id}" class="text-decoration-none d-block">
             <img src="${product.image}" class="card-img-top" alt="${product.name}"></a>
           <div class="card-body text-center d-flex flex-column">
@@ -178,7 +178,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const res = await addToCart(productId, 1);
 
     if (res.status === 'success') {
-      console.log('here');
       updateCartCount();
     } else {
       alert(res.message || 'Failed');

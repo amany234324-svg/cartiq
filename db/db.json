@@ -2,73 +2,381 @@
   "users": [
     {
       "id": "1",
-      "name": "Alice Johnson",
-      "email": "alice.johnson@example.com",
-      "password": "password123",
+      "name": "Emma Thompson",
+      "email": "emma.thompson@email.com",
+      "password": "hashed_password_1",
       "role": "admin"
     },
     {
       "id": "2",
-      "name": "Bob Smith",
-      "email": "bob.smith@example.com",
-      "password": "securePass456",
+      "name": "James Wilson",
+      "email": "james.wilson@email.com",
+      "password": "hashed_password_2",
       "role": "admin"
     },
     {
       "id": "3",
-      "name": "Charlie Davis",
-      "email": "charlie.davis@example.com",
-      "password": "charlie789",
-      "role": "customer"
+      "name": "Sophia Chen",
+      "email": "sophia.chen@email.com",
+      "password": "hashed_password_3",
+      "role": "admin"
     },
     {
       "id": "4",
-      "name": "Diana Miller",
-      "email": "diana.miller@example.com",
-      "password": "dianaPass321",
-      "role": "customer"
+      "name": "Michael Rodriguez",
+      "email": "michael.rodriguez@email.com",
+      "password": "hashed_password_4",
+      "role": "admin"
     },
     {
       "id": "5",
-      "name": "Ethan Brown",
-      "email": "ethan.brown@example.com",
-      "password": "ethanSecure654",
+      "name": "Olivia Parker",
+      "email": "olivia.parker@email.com",
+      "password": "hashed_password_5",
       "role": "customer"
     },
     {
       "id": "6",
-      "name": "Fiona Wilson",
-      "email": "fiona.wilson@example.com",
-      "password": "fionaPass987",
+      "name": "William Zhang",
+      "email": "william.zhang@email.com",
+      "password": "hashed_password_6",
       "role": "customer"
     },
     {
       "id": "7",
-      "name": "George Clark",
-      "email": "george.clark@example.com",
-      "password": "georgePass111",
+      "name": "Isabella Martinez",
+      "email": "isabella.martinez@email.com",
+      "password": "hashed_password_7",
       "role": "customer"
     },
     {
       "id": "8",
-      "name": "Hannah Lewis",
-      "email": "hannah.lewis@example.com",
-      "password": "hannahPass222",
+      "name": "Alexander Kumar",
+      "email": "alex.kumar@email.com",
+      "password": "hashed_password_8",
       "role": "customer"
     },
     {
       "id": "9",
-      "name": "Ian Walker",
-      "email": "ian.walker@example.com",
-      "password": "adminPass333",
-      "role": "admin"
+      "name": "Mia Anderson",
+      "email": "mia.anderson@email.com",
+      "password": "hashed_password_9",
+      "role": "customer"
     },
     {
       "id": "10",
-      "name": "Julia Hall",
-      "email": "julia.hall@example.com",
-      "password": "adminPass444",
-      "role": "admin"
+      "name": "Ethan Nakamura",
+      "email": "ethan.nakamura@email.com",
+      "password": "hashed_password_10",
+      "role": "customer"
+    },
+    {
+      "id": "11",
+      "name": "Charlotte Williams",
+      "email": "charlotte.williams@email.com",
+      "password": "hashed_password_11",
+      "role": "customer"
+    },
+    {
+      "id": "12",
+      "name": "Benjamin Lee",
+      "email": "benjamin.lee@email.com",
+      "password": "hashed_password_12",
+      "role": "customer"
+    },
+    {
+      "id": "13",
+      "name": "Amara Okafor",
+      "email": "amara.okafor@email.com",
+      "password": "hashed_password_13",
+      "role": "customer"
+    },
+    {
+      "id": "14",
+      "name": "Lucas Silva",
+      "email": "lucas.silva@email.com",
+      "password": "hashed_password_14",
+      "role": "customer"
+    },
+    {
+      "id": "15",
+      "name": "Harper Murphy",
+      "email": "harper.murphy@email.com",
+      "password": "hashed_password_15",
+      "role": "customer"
+    },
+    {
+      "id": "16",
+      "name": "Daniel Cohen",
+      "email": "daniel.cohen@email.com",
+      "password": "hashed_password_16",
+      "role": "customer"
+    },
+    {
+      "id": "17",
+      "name": "Evelyn Santos",
+      "email": "evelyn.santos@email.com",
+      "password": "hashed_password_17",
+      "role": "customer"
+    },
+    {
+      "id": "18",
+      "name": "Matthew Foster",
+      "email": "matthew.foster@email.com",
+      "password": "hashed_password_18",
+      "role": "customer"
+    },
+    {
+      "id": "19",
+      "name": "Sofia Rossi",
+      "email": "sofia.rossi@email.com",
+      "password": "hashed_password_19",
+      "role": "customer"
+    },
+    {
+      "id": "20",
+      "name": "Josephine Kim",
+      "email": "josephine.kim@email.com",
+      "password": "hashed_password_20",
+      "role": "customer"
+    },
+    {
+      "id": "21",
+      "name": "Samuel O'Brien",
+      "email": "samuel.obrien@email.com",
+      "password": "hashed_password_21",
+      "role": "customer"
+    },
+    {
+      "id": "22",
+      "name": "Victoria Petrov",
+      "email": "victoria.petrov@email.com",
+      "password": "hashed_password_22",
+      "role": "customer"
+    },
+    {
+      "id": "23",
+      "name": "David Garcia",
+      "email": "david.garcia@email.com",
+      "password": "hashed_password_23",
+      "role": "customer"
+    },
+    {
+      "id": "24",
+      "name": "Anna Kowalski",
+      "email": "anna.kowalski@email.com",
+      "password": "hashed_password_24",
+      "role": "customer"
+    },
+    {
+      "id": "25",
+      "name": "Christopher Brown",
+      "email": "christopher.brown@email.com",
+      "password": "hashed_password_25",
+      "role": "customer"
+    },
+    {
+      "id": "26",
+      "name": "Zoe Patel",
+      "email": "zoe.patel@email.com",
+      "password": "hashed_password_26",
+      "role": "customer"
+    },
+    {
+      "id": "27",
+      "name": "Andrew Novak",
+      "email": "andrew.novak@email.com",
+      "password": "hashed_password_27",
+      "role": "customer"
+    },
+    {
+      "id": "28",
+      "name": "Grace Wang",
+      "email": "grace.wang@email.com",
+      "password": "hashed_password_28",
+      "role": "customer"
+    },
+    {
+      "id": "29",
+      "name": "Thomas Dubois",
+      "email": "thomas.dubois@email.com",
+      "password": "hashed_password_29",
+      "role": "customer"
+    },
+    {
+      "id": "30",
+      "name": "Natalie Schmidt",
+      "email": "natalie.schmidt@email.com",
+      "password": "hashed_password_30",
+      "role": "customer"
+    },
+    {
+      "id": "31",
+      "name": "Ryan Chen",
+      "email": "ryan.chen@email.com",
+      "password": "hashed_password_31",
+      "role": "customer"
+    },
+    {
+      "id": "32",
+      "name": "Laura Mendes",
+      "email": "laura.mendes@email.com",
+      "password": "hashed_password_32",
+      "role": "customer"
+    },
+    {
+      "id": "33",
+      "name": "Kevin Osei",
+      "email": "kevin.osei@email.com",
+      "password": "hashed_password_33",
+      "role": "customer"
+    },
+    {
+      "id": "34",
+      "name": "Rachel Green",
+      "email": "rachel.green@email.com",
+      "password": "hashed_password_34",
+      "role": "customer"
+    },
+    {
+      "id": "35",
+      "name": "Brian Murphy",
+      "email": "brian.murphy@email.com",
+      "password": "hashed_password_35",
+      "role": "customer"
+    },
+    {
+      "id": "36",
+      "name": "Amanda Foster",
+      "email": "amanda.foster@email.com",
+      "password": "hashed_password_36",
+      "role": "customer"
+    },
+    {
+      "id": "37",
+      "name": "Steven Wong",
+      "email": "steven.wong@email.com",
+      "password": "hashed_password_37",
+      "role": "customer"
+    },
+    {
+      "id": "38",
+      "name": "Jessica Taylor",
+      "email": "jessica.taylor@email.com",
+      "password": "hashed_password_38",
+      "role": "customer"
+    },
+    {
+      "id": "39",
+      "name": "Mark Johnson",
+      "email": "mark.johnson@email.com",
+      "password": "hashed_password_39",
+      "role": "customer"
+    },
+    {
+      "id": "40",
+      "name": "Emily Davis",
+      "email": "emily.davis@email.com",
+      "password": "hashed_password_40",
+      "role": "customer"
+    },
+    {
+      "id": "41",
+      "name": "Joshua Martinez",
+      "email": "joshua.martinez@email.com",
+      "password": "hashed_password_41",
+      "role": "customer"
+    },
+    {
+      "id": "42",
+      "name": "Ashley Thompson",
+      "email": "ashley.thompson@email.com",
+      "password": "hashed_password_42",
+      "role": "customer"
+    },
+    {
+      "id": "43",
+      "name": "Brandon Lee",
+      "email": "brandon.lee@email.com",
+      "password": "hashed_password_43",
+      "role": "customer"
+    },
+    {
+      "id": "44",
+      "name": "Stephanie White",
+      "email": "stephanie.white@email.com",
+      "password": "hashed_password_44",
+      "role": "customer"
+    },
+    {
+      "id": "45",
+      "name": "Justin Clark",
+      "email": "justin.clark@email.com",
+      "password": "hashed_password_45",
+      "role": "customer"
+    },
+    {
+      "id": "46",
+      "name": "Heather Rodriguez",
+      "email": "heather.rodriguez@email.com",
+      "password": "hashed_password_46",
+      "role": "customer"
+    },
+    {
+      "id": "47",
+      "name": "Gregory Lewis",
+      "email": "gregory.lewis@email.com",
+      "password": "hashed_password_47",
+      "role": "customer"
+    },
+    {
+      "id": "48",
+      "name": "Christine Hall",
+      "email": "christine.hall@email.com",
+      "password": "hashed_password_48",
+      "role": "customer"
+    },
+    {
+      "id": "49",
+      "name": "Patrick Young",
+      "email": "patrick.young@email.com",
+      "password": "hashed_password_49",
+      "role": "customer"
+    },
+    {
+      "id": "50",
+      "name": "Lauren King",
+      "email": "lauren.king@email.com",
+      "password": "hashed_password_50",
+      "role": "customer"
+    },
+    {
+      "id": "51",
+      "name": "Scott Wright",
+      "email": "scott.wright@email.com",
+      "password": "hashed_password_51",
+      "role": "customer"
+    },
+    {
+      "id": "52",
+      "name": "Brittany Lopez",
+      "email": "brittany.lopez@email.com",
+      "password": "hashed_password_52",
+      "role": "customer"
+    },
+    {
+      "id": "53",
+      "name": "Eric Scott",
+      "email": "eric.scott@email.com",
+      "password": "hashed_password_53",
+      "role": "customer"
+    },
+    {
+      "id": "54",
+      "name": "Tiffany Adams",
+      "email": "tiffany.adams@email.com",
+      "password": "hashed_password_54",
+      "role": "customer"
     }
   ],
   "products": [
@@ -1275,215 +1583,891 @@
   ],
   "orders": [
     {
-      "id": "dbe4",
-      "userId": "1",
+      "id": "a1b2c3d4",
+      "userId": "5",
       "items": [
         {
-          "productId": "16",
+          "productId": "50",
           "quantity": 1
         },
         {
-          "productId": "46",
+          "productId": "26",
           "quantity": 1
+        }
+      ],
+      "subtotal": 998,
+      "tax": 139.72,
+      "totalPrice": 1137.72,
+      "status": "Shipped",
+      "shippingInfo": {
+        "fullName": "Olivia Parker",
+        "phone": "212-555-1234",
+        "address": "123 Madison Ave",
+        "city": "New York",
+        "postalCode": "10016"
+      },
+      "createdAt": "2026-02-01T10:23:15.123Z"
+    },
+    {
+      "id": "b2c3d4e5",
+      "userId": "6",
+      "items": [
+        {
+          "productId": "2",
+          "quantity": 2
         },
         {
-          "productId": "38",
-          "quantity": 5
-        }
-      ],
-      "subtotal": 6300,
-      "tax": 882.0000000000001,
-      "totalPrice": 7182,
-      "status": "Paid",
-      "shippingInfo": {
-        "fullName": "amnay mahmoud emam hassan",
-        "phone": "01032432312",
-        "address": "Almahdy",
-        "city": "Faiyum",
-        "postalCode": "432"
-      },
-      "createdAt": "2026-02-14T23:35:47.176Z"
-    },
-    {
-      "id": "4bc1",
-      "userId": "9",
-      "items": [
-        {
-          "productId": "17",
+          "productId": "7",
           "quantity": 1
         }
       ],
-      "subtotal": 93,
-      "tax": 13.020000000000001,
-      "totalPrice": 106.02,
-      "status": "Pending",
+      "subtotal": 688,
+      "tax": 96.32,
+      "totalPrice": 784.32,
+      "status": "Shipped",
       "shippingInfo": {
-        "fullName": "amnay mahmoud emam hassan",
-        "phone": "01032432312",
-        "address": "Almahdy",
-        "city": "Faiyum",
-        "postalCode": "432"
+        "fullName": "William Zhang",
+        "phone": "415-555-6789",
+        "address": "456 Market St",
+        "city": "San Francisco",
+        "postalCode": "94105"
       },
-      "createdAt": "2026-02-15T16:52:35.385Z"
+      "createdAt": "2026-02-02T14:45:22.456Z"
     },
     {
-      "id": "d5d8",
-      "userId": "4",
-      "items": [
-        {
-          "productId": "4",
-          "quantity": 7
-        }
-      ],
-      "subtotal": 1897,
-      "tax": 265.58000000000004,
-      "totalPrice": 2162.58,
-      "status": "Pending",
-      "shippingInfo": {
-        "fullName": "amnay mahmoud emam hassan",
-        "phone": "01032432312",
-        "address": "Almahdy",
-        "city": "Faiyum",
-        "postalCode": "432"
-      },
-      "createdAt": "2026-02-15T23:58:48.848Z"
-    },
-    {
-      "id": "116c",
-      "userId": "2",
+      "id": "c3d4e5f6",
+      "userId": "7",
       "items": [
         {
           "productId": "3",
           "quantity": 1
         },
         {
-          "productId": "9",
-          "quantity": 3
-        }
-      ],
-      "subtotal": 1043,
-      "tax": 146.02,
-      "totalPrice": 1189.02,
-      "status": "Delivered",
-      "shippingInfo": {
-        "fullName": "Bob",
-        "phone": "01286971732",
-        "address": "Cairo",
-        "city": "Cairo",
-        "postalCode": "11341"
-      },
-      "createdAt": "2026-02-16T03:51:07.309Z"
-    },
-    {
-      "id": "0064",
-      "userId": "3",
-      "items": [
-        {
-          "productId": "5",
-          "quantity": 1
-        },
-        {
-          "productId": "6",
-          "quantity": 3
-        }
-      ],
-      "subtotal": 1254,
-      "tax": 175.56000000000003,
-      "totalPrice": 1429.56,
-      "status": "Delivered",
-      "shippingInfo": {
-        "fullName": "Charlie Davis",
-        "phone": "01286971732",
-        "address": "Cairo",
-        "city": "Cairo",
-        "postalCode": "11341"
-      },
-      "createdAt": "2026-02-16T04:11:16.512Z"
-    },
-    {
-      "id": "3e6d",
-      "userId": "6",
-      "items": [
-        {
-          "productId": "11",
+          "productId": "15",
           "quantity": 2
+        },
+        {
+          "productId": "27",
+          "quantity": 1
         }
       ],
-      "subtotal": 130,
-      "tax": 18.200000000000003,
-      "totalPrice": 148.2,
-      "status": "Shipped",
+      "subtotal": 485,
+      "tax": 67.9,
+      "totalPrice": 552.9,
+      "status": "Delivered",
       "shippingInfo": {
-        "fullName": "Fiona Wilson",
-        "phone": "01286971732",
-        "address": "Cairo",
-        "city": "Cairo",
-        "postalCode": "11341"
+        "fullName": "Isabella Martinez",
+        "phone": "305-555-2345",
+        "address": "789 Ocean Dr",
+        "city": "Miami",
+        "postalCode": "33139"
       },
-      "createdAt": "2026-02-16T15:39:57.601Z"
-    }
-  ],
-  "carts": [
-    {
-      "id": "4609",
-      "userId": "1",
-      "items": [
-        {
-          "productId": "7",
-          "quantity": 4
-        },
-        {
-          "productId": "5",
-          "quantity": 1
-        }
-      ]
+      "createdAt": "2026-02-03T09:12:33.789Z"
     },
     {
-      "id": "5a10",
-      "userId": "9",
-      "items": [
-        {
-          "productId": "5",
-          "quantity": 1
-        },
-        {
-          "productId": "4",
-          "quantity": 1
-        }
-      ]
-    },
-    {
-      "id": "8c72",
-      "userId": "2",
-      "items": [
-        {
-          "productId": "4",
-          "quantity": 1
-        }
-      ]
-    },
-    {
-      "id": "ffe9",
+      "id": "d4e5f6g7",
       "userId": "8",
       "items": [
         {
-          "productId": "11",
+          "productId": "10",
           "quantity": 1
         },
         {
-          "productId": "9",
-          "quantity": 2
+          "productId": "42",
+          "quantity": 1
+        }
+      ],
+      "subtotal": 1078,
+      "tax": 150.92,
+      "totalPrice": 1228.92,
+      "status": "Processing",
+      "shippingInfo": {
+        "fullName": "Alexander Kumar",
+        "phone": "206-555-3456",
+        "address": "321 Pine St",
+        "city": "Seattle",
+        "postalCode": "98101"
+      },
+      "createdAt": "2026-02-04T16:30:44.101Z"
+    },
+    {
+      "id": "e5f6g7h8",
+      "userId": "9",
+      "items": [
+        {
+          "productId": "18",
+          "quantity": 1
+        }
+      ],
+      "subtotal": 329,
+      "tax": 46.06,
+      "totalPrice": 375.06,
+      "status": "Delivered",
+      "shippingInfo": {
+        "fullName": "Mia Anderson",
+        "phone": "312-555-4567",
+        "address": "654 Michigan Ave",
+        "city": "Chicago",
+        "postalCode": "60611"
+      },
+      "createdAt": "2026-02-05T11:55:55.555Z"
+    },
+    {
+      "id": "f6g7h8i9",
+      "userId": "10",
+      "items": [
+        {
+          "productId": "5",
+          "quantity": 3
         },
         {
           "productId": "13",
           "quantity": 2
         },
         {
-          "productId": "12",
+          "productId": "57",
+          "quantity": 1
+        }
+      ],
+      "subtotal": 654,
+      "tax": 91.56,
+      "totalPrice": 745.56,
+      "status": "Shipped",
+      "shippingInfo": {
+        "fullName": "Ethan Nakamura",
+        "phone": "808-555-5678",
+        "address": "987 Kalakaua Ave",
+        "city": "Honolulu",
+        "postalCode": "96815"
+      },
+      "createdAt": "2026-02-06T08:20:11.112Z"
+    },
+    {
+      "id": "g7h8i9j0",
+      "userId": "11",
+      "items": [
+        {
+          "productId": "1",
+          "quantity": 1
+        },
+        {
+          "productId": "22",
           "quantity": 2
         },
         {
+          "productId": "58",
+          "quantity": 3
+        }
+      ],
+      "subtotal": 708,
+      "tax": 99.12,
+      "totalPrice": 807.12,
+      "status": "Pending",
+      "shippingInfo": {
+        "fullName": "Charlotte Williams",
+        "phone": "617-555-6789",
+        "address": "159 Newbury St",
+        "city": "Boston",
+        "postalCode": "02116"
+      },
+      "createdAt": "2026-02-07T13:40:29.330Z"
+    },
+    {
+      "id": "h8i9j0k1",
+      "userId": "12",
+      "items": [
+        {
+          "productId": "30",
+          "quantity": 2
+        },
+        {
+          "productId": "78",
+          "quantity": 1
+        }
+      ],
+      "subtotal": 1197,
+      "tax": 167.58,
+      "totalPrice": 1364.58,
+      "status": "Delivered",
+      "shippingInfo": {
+        "fullName": "Benjamin Lee",
+        "phone": "214-555-7890",
+        "address": "753 Elm St",
+        "city": "Dallas",
+        "postalCode": "75201"
+      },
+      "createdAt": "2026-02-08T17:15:44.447Z"
+    },
+    {
+      "id": "i9j0k1l2",
+      "userId": "13",
+      "items": [
+        {
+          "productId": "39",
+          "quantity": 1
+        },
+        {
+          "productId": "43",
+          "quantity": 2
+        },
+        {
+          "productId": "75",
+          "quantity": 1
+        }
+      ],
+      "subtotal": 648,
+      "tax": 90.72,
+      "totalPrice": 738.72,
+      "status": "Shipped",
+      "shippingInfo": {
+        "fullName": "Amara Okafor",
+        "phone": "404-555-8901",
+        "address": "246 Peachtree St",
+        "city": "Atlanta",
+        "postalCode": "30303"
+      },
+      "createdAt": "2026-02-09T10:05:36.668Z"
+    },
+    {
+      "id": "j0k1l2m3",
+      "userId": "14",
+      "items": [
+        {
+          "productId": "4",
+          "quantity": 2
+        },
+        {
+          "productId": "28",
+          "quantity": 1
+        },
+        {
+          "productId": "56",
+          "quantity": 1
+        }
+      ],
+      "subtotal": 1228,
+      "tax": 171.92,
+      "totalPrice": 1399.92,
+      "status": "Processing",
+      "shippingInfo": {
+        "fullName": "Lucas Silva",
+        "phone": "303-555-9012",
+        "address": "1350 Welton St",
+        "city": "Denver",
+        "postalCode": "80204"
+      },
+      "createdAt": "2026-02-10T19:25:17.889Z"
+    },
+    {
+      "id": "k1l2m3n4",
+      "userId": "15",
+      "items": [
+        {
+          "productId": "11",
+          "quantity": 4
+        }
+      ],
+      "subtotal": 260,
+      "tax": 36.4,
+      "totalPrice": 296.4,
+      "status": "Delivered",
+      "shippingInfo": {
+        "fullName": "Harper Murphy",
+        "phone": "602-555-0123",
+        "address": "369 Camelback Rd",
+        "city": "Phoenix",
+        "postalCode": "85012"
+      },
+      "createdAt": "2026-02-11T12:50:23.234Z"
+    },
+    {
+      "id": "l2m3n4o5",
+      "userId": "16",
+      "items": [
+        {
+          "productId": "67",
+          "quantity": 2
+        },
+        {
+          "productId": "87",
+          "quantity": 1
+        }
+      ],
+      "subtotal": 423,
+      "tax": 59.22,
+      "totalPrice": 482.22,
+      "status": "Pending",
+      "shippingInfo": {
+        "fullName": "Daniel Cohen",
+        "phone": "215-555-1234",
+        "address": "951 Walnut St",
+        "city": "Philadelphia",
+        "postalCode": "19107"
+      },
+      "createdAt": "2026-02-12T14:30:45.567Z"
+    },
+    {
+      "id": "m3n4o5p6",
+      "userId": "17",
+      "items": [
+        {
+          "productId": "8",
+          "quantity": 1
+        },
+        {
+          "productId": "52",
+          "quantity": 1
+        },
+        {
+          "productId": "92",
+          "quantity": 1
+        }
+      ],
+      "subtotal": 669,
+      "tax": 93.66,
+      "totalPrice": 762.66,
+      "status": "Shipped",
+      "shippingInfo": {
+        "fullName": "Evelyn Santos",
+        "phone": "713-555-2345",
+        "address": "147 Main St",
+        "city": "Houston",
+        "postalCode": "77002"
+      },
+      "createdAt": "2026-02-13T09:15:38.789Z"
+    },
+    {
+      "id": "n4o5p6q7",
+      "userId": "18",
+      "items": [
+        {
+          "productId": "14",
+          "quantity": 2
+        },
+        {
+          "productId": "34",
+          "quantity": 1
+        },
+        {
+          "productId": "94",
+          "quantity": 1
+        }
+      ],
+      "subtotal": 616,
+      "tax": 86.24,
+      "totalPrice": 702.24,
+      "status": "Delivered",
+      "shippingInfo": {
+        "fullName": "Matthew Foster",
+        "phone": "503-555-3456",
+        "address": "258 Broadway",
+        "city": "Portland",
+        "postalCode": "97205"
+      },
+      "createdAt": "2026-02-14T16:40:59.101Z"
+    },
+    {
+      "id": "o5p6q7r8",
+      "userId": "19",
+      "items": [
+        {
+          "productId": "19",
+          "quantity": 2
+        },
+        {
+          "productId": "71",
+          "quantity": 3
+        }
+      ],
+      "subtotal": 315,
+      "tax": 44.1,
+      "totalPrice": 359.1,
+      "status": "Processing",
+      "shippingInfo": {
+        "fullName": "Sofia Rossi",
+        "phone": "504-555-4567",
+        "address": "369 Bourbon St",
+        "city": "New Orleans",
+        "postalCode": "70130"
+      },
+      "createdAt": "2026-02-15T11:25:11.112Z"
+    },
+    {
+      "id": "p6q7r8s9",
+      "userId": "20",
+      "items": [
+        {
+          "productId": "54",
+          "quantity": 1
+        },
+        {
+          "productId": "86",
+          "quantity": 1
+        }
+      ],
+      "subtotal": 2698,
+      "tax": 377.72,
+      "totalPrice": 3075.72,
+      "status": "Paid",
+      "shippingInfo": {
+        "fullName": "Josephine Kim",
+        "phone": "702-555-5678",
+        "address": "159 Las Vegas Blvd",
+        "city": "Las Vegas",
+        "postalCode": "89109"
+      },
+      "createdAt": "2026-02-15T20:05:22.223Z"
+    },
+    {
+      "id": "q7r8s9t0",
+      "userId": "21",
+      "items": [
+        {
+          "productId": "9",
+          "quantity": 2
+        },
+        {
+          "productId": "33",
+          "quantity": 1
+        }
+      ],
+      "subtotal": 347,
+      "tax": 48.58,
+      "totalPrice": 395.58,
+      "status": "Shipped",
+      "shippingInfo": {
+        "fullName": "Samuel O'Brien",
+        "phone": "901-555-6789",
+        "address": "753 Beale St",
+        "city": "Memphis",
+        "postalCode": "38103"
+      },
+      "createdAt": "2026-02-16T08:35:33.334Z"
+    },
+    {
+      "id": "r8s9t0u1",
+      "userId": "22",
+      "items": [
+        {
+          "productId": "21",
+          "quantity": 3
+        },
+        {
+          "productId": "37",
+          "quantity": 2
+        }
+      ],
+      "subtotal": 232,
+      "tax": 32.48,
+      "totalPrice": 264.48,
+      "status": "Pending",
+      "shippingInfo": {
+        "fullName": "Victoria Petrov",
+        "phone": "907-555-7890",
+        "address": "456 Northern Lights Blvd",
+        "city": "Anchorage",
+        "postalCode": "99503"
+      },
+      "createdAt": "2026-02-16T13:45:44.445Z"
+    },
+    {
+      "id": "s9t0u1v2",
+      "userId": "23",
+      "items": [
+        {
+          "productId": "41",
+          "quantity": 5
+        },
+        {
+          "productId": "53",
+          "quantity": 3
+        },
+        {
+          "productId": "85",
+          "quantity": 2
+        }
+      ],
+      "subtotal": 485,
+      "tax": 67.9,
+      "totalPrice": 552.9,
+      "status": "Delivered",
+      "shippingInfo": {
+        "fullName": "David Garcia",
+        "phone": "505-555-8901",
+        "address": "789 Canyon Rd",
+        "city": "Santa Fe",
+        "postalCode": "87501"
+      },
+      "createdAt": "2026-02-14T18:55:55.556Z"
+    },
+    {
+      "id": "t0u1v2w3",
+      "userId": "24",
+      "items": [
+        {
+          "productId": "12",
+          "quantity": 1
+        },
+        {
+          "productId": "36",
+          "quantity": 2
+        },
+        {
+          "productId": "60",
+          "quantity": 1
+        }
+      ],
+      "subtotal": 488,
+      "tax": 68.32,
+      "totalPrice": 556.32,
+      "status": "Processing",
+      "shippingInfo": {
+        "fullName": "Anna Kowalski",
+        "phone": "816-555-9012",
+        "address": "123 Country Club Plaza",
+        "city": "Kansas City",
+        "postalCode": "64112"
+      },
+      "createdAt": "2026-02-13T12:10:11.112Z"
+    }
+  ],
+  "carts": [
+    {
+      "id": "a1b2c3",
+      "userId": "25",
+      "items": [
+        {
+          "productId": "20",
+          "quantity": 2
+        },
+        {
+          "productId": "44",
+          "quantity": 1
+        },
+        {
+          "productId": "88",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "b2c3d4",
+      "userId": "26",
+      "items": [
+        {
+          "productId": "6",
+          "quantity": 3
+        },
+        {
+          "productId": "14",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "c3d4e5",
+      "userId": "27",
+      "items": [
+        {
+          "productId": "23",
+          "quantity": 2
+        },
+        {
+          "productId": "35",
+          "quantity": 1
+        },
+        {
+          "productId": "55",
+          "quantity": 1
+        },
+        {
+          "productId": "91",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "d4e5f6",
+      "userId": "28",
+      "items": [
+        {
           "productId": "16",
+          "quantity": 1
+        },
+        {
+          "productId": "40",
+          "quantity": 2
+        },
+        {
+          "productId": "64",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "e5f6g7",
+      "userId": "29",
+      "items": [
+        {
+          "productId": "29",
+          "quantity": 3
+        },
+        {
+          "productId": "45",
+          "quantity": 2
+        },
+        {
+          "productId": "81",
+          "quantity": 4
+        }
+      ]
+    },
+    {
+      "id": "f6g7h8",
+      "userId": "30",
+      "items": [
+        {
+          "productId": "17",
+          "quantity": 2
+        },
+        {
+          "productId": "49",
+          "quantity": 1
+        },
+        {
+          "productId": "93",
+          "quantity": 2
+        }
+      ]
+    },
+    {
+      "id": "g7h8i9",
+      "userId": "31",
+      "items": [
+        {
+          "productId": "24",
+          "quantity": 1
+        },
+        {
+          "productId": "48",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "h8i9j0",
+      "userId": "32",
+      "items": [
+        {
+          "productId": "31",
+          "quantity": 2
+        },
+        {
+          "productId": "63",
+          "quantity": 1
+        },
+        {
+          "productId": "95",
+          "quantity": 2
+        }
+      ]
+    },
+    {
+      "id": "i9j0k1",
+      "userId": "33",
+      "items": [
+        {
+          "productId": "25",
+          "quantity": 3
+        },
+        {
+          "productId": "61",
+          "quantity": 2
+        },
+        {
+          "productId": "73",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "j0k1l2",
+      "userId": "34",
+      "items": [
+        {
+          "productId": "32",
+          "quantity": 1
+        },
+        {
+          "productId": "68",
+          "quantity": 1
+        },
+        {
+          "productId": "80",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "k1l2m3",
+      "userId": "35",
+      "items": [
+        {
+          "productId": "38",
+          "quantity": 1
+        },
+        {
+          "productId": "66",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "l2m3n4",
+      "userId": "36",
+      "items": [
+        {
+          "productId": "46",
+          "quantity": 2
+        },
+        {
+          "productId": "70",
+          "quantity": 1
+        },
+        {
+          "productId": "98",
+          "quantity": 3
+        }
+      ]
+    },
+    {
+      "id": "m3n4o5",
+      "userId": "37",
+      "items": [
+        {
+          "productId": "47",
+          "quantity": 1
+        },
+        {
+          "productId": "59",
+          "quantity": 1
+        },
+        {
+          "productId": "79",
+          "quantity": 2
+        }
+      ]
+    },
+    {
+      "id": "n4o5p6",
+      "userId": "38",
+      "items": [
+        {
+          "productId": "51",
+          "quantity": 1
+        },
+        {
+          "productId": "75",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "o5p6q7",
+      "userId": "39",
+      "items": [
+        {
+          "productId": "62",
+          "quantity": 3
+        },
+        {
+          "productId": "74",
+          "quantity": 1
+        },
+        {
+          "productId": "90",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "p6q7r8",
+      "userId": "40",
+      "items": [
+        {
+          "productId": "65",
+          "quantity": 2
+        },
+        {
+          "productId": "77",
+          "quantity": 1
+        },
+        {
+          "productId": "89",
+          "quantity": 2
+        }
+      ]
+    },
+    {
+      "id": "q7r8s9",
+      "userId": "41",
+      "items": [
+        {
+          "productId": "69",
+          "quantity": 1
+        },
+        {
+          "productId": "97",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "r8s9t0",
+      "userId": "42",
+      "items": [
+        {
+          "productId": "72",
+          "quantity": 2
+        },
+        {
+          "productId": "76",
+          "quantity": 3
+        },
+        {
+          "productId": "84",
+          "quantity": 2
+        }
+      ]
+    },
+    {
+      "id": "s9t0u1",
+      "userId": "43",
+      "items": [
+        {
+          "productId": "82",
+          "quantity": 1
+        },
+        {
+          "productId": "99",
+          "quantity": 2
+        }
+      ]
+    },
+    {
+      "id": "t0u1v2",
+      "userId": "44",
+      "items": [
+        {
+          "productId": "83",
+          "quantity": 1
+        },
+        {
+          "productId": "96",
+          "quantity": 1
+        },
+        {
+          "productId": "100",
           "quantity": 1
         }
       ]

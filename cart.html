@@ -247,7 +247,7 @@
         const result = await getCurrentUserCartPopulated();
 
         if (result.status !== 'success') {
-          itemsList.innerHTML = `<h5 class="text-danger text-center">Failed to load cart</h5>`;
+          itemsList.innerHTML = `<h5 class="text-danger text-center">Cart Is Empty</h5>`;
           updateSummary(0);
           checkoutBtn.disabled = true;
           return;

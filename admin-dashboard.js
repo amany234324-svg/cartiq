@@ -85,7 +85,7 @@ window.addEventListener('load', async () => {
   document.getElementById('totalProducts').textContent = res.data.totalProducts;
   document.getElementById('totalOrders').textContent = res.data.totalOrders;
   document.getElementById('totalRevenue').textContent =
-    '$' + res.data.totalRevenue;
+    '$' + +res.data.totalRevenue.toFixed(2);
   document.getElementById('pendingOrders').textContent = res.data.pendingOrders;
   document.getElementById('customers').textContent = res.data.customers;
 
@@ -94,7 +94,10 @@ window.addEventListener('load', async () => {
   const res2 = await getAllOrders();
 
   if (res2.status === 'success') {
-    const orders = res2.data.slice(0, 6);
+    const orders = res2.data
+      .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
+      .slice(0, 6);
+
     for (const order of orders) {
       const user = await getUserById(order.userId);
       let username = user?.data?.name;

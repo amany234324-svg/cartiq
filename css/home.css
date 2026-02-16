@@ -320,8 +320,8 @@ a .log:hover {
     box-shadow 0.3s;
   border-radius: 15px;
   overflow: hidden;
-  width: 250px;
-  height: 380px;
+  /* width: 250px;
+  height: 380px; */
 }
 
 .product-card:hover {
