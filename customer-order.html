@@ -103,8 +103,18 @@
     </div>
 
     <script type="module">
-      import { isAuthenticated, getCurrentUser, logout } from '../data/auth.js';
+      import {
+        isAuthenticated,
+        getCurrentUser,
+        logout,
+        hasRole,
+      } from '../data/auth.js';
       import { updateCartCount } from './js/script.js';
+
+      if (hasRole('customer').status === 'fail') {
+        window.location.href = 'login.html';
+      }
+
       fetch('navbar.html')
         .then((response) => response.text())
         .then((data) => {

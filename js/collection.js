@@ -1,3 +1,9 @@
+import { hasRole } from '../data/auth.js';
+
+if (hasRole('customer').status !== 'success') {
+  window.location.href = 'login.html';
+}
+
 // Load navbar dynamically
 fetch('navbar.html')
   .then((response) => response.text())

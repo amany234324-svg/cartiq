@@ -198,7 +198,7 @@
       "price": 65,
       "category": "Shoes",
       "image": "https://images.unsplash.com/photo-1605348532760-6753d2c43329?w=500",
-      "stock": 89,
+      "stock": 87,
       "isNew": false,
       "isBest": true,
       "isFeatured": false,
@@ -1399,6 +1399,28 @@
         "postalCode": "11341"
       },
       "createdAt": "2026-02-16T04:11:16.512Z"
+    },
+    {
+      "id": "3e6d",
+      "userId": "6",
+      "items": [
+        {
+          "productId": "11",
+          "quantity": 2
+        }
+      ],
+      "subtotal": 130,
+      "tax": 18.200000000000003,
+      "totalPrice": 148.2,
+      "status": "Shipped",
+      "shippingInfo": {
+        "fullName": "Fiona Wilson",
+        "phone": "01286971732",
+        "address": "Cairo",
+        "city": "Cairo",
+        "postalCode": "11341"
+      },
+      "createdAt": "2026-02-16T15:39:57.601Z"
     }
   ],
   "carts": [
@@ -1436,6 +1458,32 @@
       "items": [
         {
           "productId": "4",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "ffe9",
+      "userId": "8",
+      "items": [
+        {
+          "productId": "11",
+          "quantity": 1
+        },
+        {
+          "productId": "9",
+          "quantity": 2
+        },
+        {
+          "productId": "13",
+          "quantity": 2
+        },
+        {
+          "productId": "12",
+          "quantity": 2
+        },
+        {
+          "productId": "16",
           "quantity": 1
         }
       ]

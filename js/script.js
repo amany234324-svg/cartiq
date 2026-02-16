@@ -1,7 +1,11 @@
 // ================= IMPORT API   ) =================
-import { isAuthenticated, getCurrentUser } from '../data/auth.js';
+import { isAuthenticated, getCurrentUser, hasRole } from '../data/auth.js';
 import { getAllProducts } from '../data/products.js';
 import { getCurrentUserCartPopulated, addToCart } from '../data/cart.js';
+
+if (hasRole('customer').status !== 'success') {
+  window.location.href = 'login.html';
+}
 
 export async function updateCartCount() {
   const cartCountEl = document.getElementById('cart-count');
@@ -174,6 +178,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const res = await addToCart(productId, 1);
 
     if (res.status === 'success') {
+      console.log('here');
       updateCartCount();
     } else {
       alert(res.message || 'Failed');
