@@ -33,8 +33,6 @@ const API_BASE_URL = 'http://localhost:3000';
 export async function get(endpoint, params = {}) {
   try {
     const query = formQueryString(params);
-    console.log('-------');
-    console.log(query);
     const res = await fetch(`${API_BASE_URL}/${endpoint}?${query}`);
     // const res = await fetch(`${API_BASE_URL}/${endpoint}`);
 
