@@ -1,12 +1,12 @@
-import { validateShippingInfo } from '../utils/validation.js';
-import { post, patch, remove, getOne, getAll } from './api.js';
-import { clearCart, getCurrentUserCartPopulated } from './cart.js';
+import { validateShippingInfo } from "../utils/validation.js";
+import { post, patch, remove, getOne, getAll } from "./api.js";
+import { clearCart, getCurrentUserCartPopulated } from "./cart.js";
 import {
   getAllProducts,
   getProductById,
   updateProductById,
-} from './products.js';
-import { hasRole, isAuthenticated } from './auth.js';
+} from "./products.js";
+import { hasRole, isAuthenticated } from "./auth.js";
 
 /**
  * Fetches one order by its ID and fills in full product details for each item in the order.
@@ -19,12 +19,12 @@ import { hasRole, isAuthenticated } from './auth.js';
  */
 async function getOrderById(id) {
   if (!id) {
-    return { status: 'fail', error: 'Order ID is required' };
+    return { status: "fail", error: "Order ID is required" };
   }
 
   const order = await getOne(`orders/${id}`);
 
-  if (order.status === 'fail') return order;
+  if (order.status === "fail") return order;
 
   const orderItems = order.data.items;
 
@@ -40,7 +40,7 @@ async function getOrderById(id) {
   );
 
   return {
-    status: 'success',
+    status: "success",
     data: {
       ...order.data,
       items,
@@ -56,9 +56,9 @@ async function getOrderById(id) {
  *   - { status: 'fail', message: '...' } or { status: 'error', message: '...' } — from the API (e.g. no orders or request failed).
  */
 async function getAllOrders(userId) {
-  const orders = await getAll('orders', { userId });
+  const orders = await getAll("orders", { userId });
 
-  if (orders.status !== 'success') return orders;
+  if (orders.status !== "success") return orders;
 
   // Populate order items with products data
   const populatedOrders = await Promise.all(
@@ -84,7 +84,7 @@ async function getAllOrders(userId) {
   );
 
   return {
-    status: 'success',
+    status: "success",
     data: populatedOrders,
   };
 }
@@ -98,9 +98,9 @@ async function getAllOrders(userId) {
  *   - { status: 'fail', message: '...' } or { status: 'error', message: '...' } — from getAllOrders/API.
  */
 async function getCurrentUserOrders() {
-  console.log('called');
+  console.log("called");
   const authenticationResult = isAuthenticated();
-  if (authenticationResult.status === 'fail') return authenticationResult;
+  if (authenticationResult.status === "fail") return authenticationResult;
 
   return await getAllOrders(authenticationResult.token.userId);
 }
@@ -116,19 +116,19 @@ async function getCurrentUserOrders() {
 async function createOrder(shippingInfo) {
   // Check if user has a cart
   const userCart = await getCurrentUserCartPopulated();
-  if (userCart.status === 'fail') return userCart;
+  if (userCart.status === "fail") return userCart;
 
   // Validate shipping info
   const shippingValidationResult = validateShippingInfo(shippingInfo);
   if (!shippingValidationResult.valid)
-    return { status: 'fail', message: shippingValidationResult.error };
+    return { status: "fail", message: shippingValidationResult.error };
 
   // Cart items
   let items = userCart.data.items;
 
   let subtotal = 0;
   let valid = true;
-  let messages = '';
+  let messages = "";
   // Check items quantities against products stocks, and set subtotal
   await Promise.all(
     items.map(async (item) => {
@@ -146,7 +146,7 @@ async function createOrder(shippingInfo) {
 
   // If no valid quantity don't continue the process
   if (!valid) {
-    return { status: 'fail', message: messages };
+    return { status: "fail", message: messages };
   }
 
   // Update products stocks
@@ -172,13 +172,13 @@ async function createOrder(shippingInfo) {
     subtotal,
     tax,
     totalPrice,
-    status: 'pending',
+    status: "Pending",
     shippingInfo,
     createdAt: new Date(),
   };
 
   // Clear cart
-  const orderResult = await post('orders', order);
+  const orderResult = await post("orders", order);
   await clearCart();
 
   return orderResult;
@@ -196,11 +196,11 @@ async function createOrder(shippingInfo) {
  */
 async function updateOrderById(id, data) {
   if (!id) {
-    return { status: 'fail', error: 'Order ID is required' };
+    return { status: "fail", error: "Order ID is required" };
   }
 
-  const hasAdminRole = hasRole('admin');
-  if (hasAdminRole.status === 'fail') return hasAdminRole;
+  const hasAdminRole = hasRole("admin");
+  if (hasAdminRole.status === "fail") return hasAdminRole;
 
   return await patch(`orders/${id}`, data);
 }
@@ -216,7 +216,7 @@ async function updateOrderById(id, data) {
  */
 async function deleteOrderById(id, data) {
   if (!id) {
-    return { status: 'fail', error: 'Order ID is required' };
+    return { status: "fail", error: "Order ID is required" };
   }
 
   return await remove(`orders/${id}`);
@@ -231,8 +231,8 @@ async function deleteOrderById(id, data) {
  */
 async function getOrdersStatistics() {
   // Only admins can get statistics
-  const isAdmin = hasRole('admin');
-  if (isAdmin.status === 'fail') return isAdmin;
+  const isAdmin = hasRole("admin");
+  if (isAdmin.status === "fail") return isAdmin;
 
   const orders = await getAllOrders();
 
@@ -241,19 +241,19 @@ async function getOrdersStatistics() {
   let pendingOrders = 0;
   orders.data.forEach((order) => {
     if (
-      order.status.toLowerCase() === 'paid' ||
-      order.status.toLowerCase() === 'delivered'
+      order.status.toLowerCase() === "paid" ||
+      order.status.toLowerCase() === "delivered"
     ) {
       totalRevenue += order.totalPrice;
     }
-    if (order.status.toLowerCase() === 'pending') pendingOrders++;
+    if (order.status.toLowerCase() === "pending") pendingOrders++;
   });
 
   const totalProducts = (await getAllProducts()).data.length;
-  const customers = (await getAll('users')).data.length;
+  const customers = (await getAll("users")).data.length;
 
   return {
-    status: 'success',
+    status: "success",
     data: {
       totalOrders,
       totalRevenue,

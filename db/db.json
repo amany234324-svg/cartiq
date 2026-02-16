@@ -70,27 +70,14 @@
       "password": "adminPass444",
       "role": "admin"
     }
-   
   ],
   "products": [
-    {
-      "id": "1",
-      "name": "Asics 555",
-      "price": "295",
-      "category": "Clothes",
-      "image": "img\\products\\product-1771207116556.jpg",
-      "stock": "28",
-      "isNew": true,
-      "isBest": false,
-      "isFeatured": false,
-      "description": "Classic retro-inspired sneakers with modern comfort, perfect for everyday wear and light workouts."
-    },
     {
       "id": "2",
       "name": "H&M Sweater",
       "price": "55",
       "category": "Clothes",
-      "image": "https://picsum.photos/400?2",
+      "image": "img\\products\\product-1771209092649.jpg",
       "stock": "25",
       "isNew": true,
       "isBest": true,
@@ -1308,6 +1295,15 @@
       "category": "Accessories",
       "description": "new added product description",
       "image": "img\\products\\product-1771207878004.jpg"
+    },
+    {
+      "id": "ceaf",
+      "name": "new product 100",
+      "price": "500",
+      "stock": "30",
+      "category": "Clothes",
+      "description": "new product description",
+      "image": "img\\products\\product-1771209135169.jpg"
     }
   ],
   "orders": [
@@ -1375,7 +1371,7 @@
       "subtotal": 1897,
       "tax": 265.58000000000004,
       "totalPrice": 2162.58,
-      "status": "pending",
+      "status": "Pending",
       "shippingInfo": {
         "fullName": "amnay mahmoud emam hassan",
         "phone": "01032432312",
