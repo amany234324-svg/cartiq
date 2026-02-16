@@ -170,6 +170,7 @@
           id="addProductBtn"
           data-bs-toggle="modal"
           data-bs-target="#productModal"
+          type="button"
         >
           + Add New Product
         </button>
@@ -269,7 +270,12 @@
               placeholder="Description"
             ></textarea>
 
-            <input type="file" id="productImage" class="form-control mb-2" />
+            <input
+              type="file"
+              id="productImage"
+              accept="image/*"
+              class="form-control mb-2"
+            />
             <img id="imagePreview" class="img-fluid d-none" />
 
             <p id="errorMsg" class="text-danger fw-bold mb-0 mt-5 d-none"></p>
@@ -279,7 +285,7 @@
             <button class="btn btn-secondary" data-bs-dismiss="modal">
               Cancel
             </button>
-            <button class="btn btn-success" id="saveProductBtn">
+            <button type="button" class="btn btn-success" id="saveProductBtn">
               Save Product
             </button>
           </div>

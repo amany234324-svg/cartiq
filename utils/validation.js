@@ -131,7 +131,7 @@ export function validatePassword(pass) {
  *   - { valid: false, error: 'Product price must be a positive number' } — price is zero or negative.
  */
 export function validateProductData(productData, create = true) {
-  const { name, description, category, price, stock } = productData;
+  const { name, description, category, price, stock, image } = productData;
   if (create) {
     if (!name) {
       return { valid: false, error: 'Product name is required' };
@@ -147,6 +147,9 @@ export function validateProductData(productData, create = true) {
     }
     if (!stock) {
       return { valid: false, error: 'Product stock is required' };
+    }
+    if (!image) {
+      return { valid: false, error: 'Product image is required' };
     }
   }
 

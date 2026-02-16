@@ -24,6 +24,8 @@ const productModal = new bootstrap.Modal(
   document.getElementById('productModal'),
 );
 
+let searchInput = document.getElementById('searchInput');
+
 window.addEventListener('load', async () => {
   //   const products = await getAllProducts();
   const userRes = await getCurrentUser();
@@ -53,6 +55,9 @@ async function renderProducts(options) {
   const tableBody = document.getElementById('productTableBody');
   tableBody.innerHTML = '';
 
+  if (searchInput.value) {
+    options = { search: searchInput.value };
+  }
   const res = await getAllProducts(options);
 
   if (res.status !== 'success') {
@@ -74,26 +79,26 @@ async function renderProducts(options) {
                 <td class="${stockClass}">${product.stock}</td>
                 <td>${product.category}</td>
                 <td>
-                    <button data-id="${product.id}" class="btn btn-warning btn-sm edit-btn">Edit</button>
-                    <button data-id="${product.id}" class="btn btn-danger btn-sm delete-btn">Delete</button>
+                    <button type="button" data-id="${product.id}" class="btn btn-warning btn-sm edit-btn">Edit</button>
+                    <button type="button" data-id="${product.id}" class="btn btn-danger btn-sm delete-btn">Delete</button>
                 </td>
             </tr>
         `;
+  });
 
-    document.querySelectorAll('.edit-btn').forEach((btn) => {
-      btn.addEventListener('click', function () {
-        const id = this.dataset.id;
-        //   console.log(id);
-        editProduct(id);
-      });
+  document.querySelectorAll('.edit-btn').forEach((btn) => {
+    btn.addEventListener('click', function () {
+      const id = this.dataset.id;
+      //   console.log(id);
+      editProduct(id);
     });
+  });
 
-    document.querySelectorAll('.delete-btn').forEach((btn) => {
-      btn.addEventListener('click', function () {
-        const id = this.dataset.id;
-        //   console.log(id);
-        deleteProduct(id);
-      });
+  document.querySelectorAll('.delete-btn').forEach((btn) => {
+    btn.addEventListener('click', function () {
+      const id = this.dataset.id;
+      //   console.log(id);
+      deleteProduct(id);
     });
   });
 }
@@ -103,18 +108,27 @@ async function renderProducts(options) {
 // Save Product
 document
   .getElementById('saveProductBtn')
-  .addEventListener('click', async function () {
+  .addEventListener('click', async function (e) {
+    e.preventDefault();
     const errorMsg = document.getElementById('errorMsg');
 
     const productId = document.getElementById('productId').value;
+
     const productData = {
       name: document.getElementById('productName').value.trim(),
       price: document.getElementById('productPrice').value,
       stock: document.getElementById('productStock').value,
       category: document.getElementById('productCategory').value,
       description: document.getElementById('productDescription').value,
-      image: document.getElementById('imagePreview').src,
     };
+
+    const image = document.getElementById('productImage').files[0];
+    if (image) {
+      const form = new FormData();
+      form.append('productImage', image);
+      productData.image = form;
+    }
+    // console.log(productData.image);
 
     // if (!name || !price || !stock) {
     //   alert("Please fill all required fields");
@@ -172,6 +186,7 @@ async function addProduct() {
   document.getElementById('productStock').value = '';
   document.getElementById('productCategory').value = '';
   document.getElementById('productDescription').value = '';
+  document.getElementById('imagePreview').src = '';
   document.getElementById('imagePreview').classList.add('d-none');
 
   productModal.show();
@@ -216,7 +231,7 @@ function debounce(fn, delay) {
 }
 
 // Search
-document.getElementById('searchInput').addEventListener(
+searchInput.addEventListener(
   'input',
   debounce(function () {
     const value = this.value.toLowerCase();
