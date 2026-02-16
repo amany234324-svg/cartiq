@@ -126,8 +126,7 @@ document
 //ز(Logout)
 document.getElementById('logoutBtn').addEventListener('click', (e) => {
   e.preventDefault();
-  if (confirm('Are you sure you want to logout?')) {
-    logout();
-    window.location.href = 'login.html';
-  }
+
+  logout();
+  window.location.href = 'login.html';
 });
