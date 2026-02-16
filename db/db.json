@@ -70,6 +70,7 @@
       "password": "adminPass444",
       "role": "admin"
     }
+   
   ],
   "products": [
     {
@@ -114,7 +115,7 @@
       "price": 271,
       "category": "Electronics",
       "image": "https://picsum.photos/400?4",
-      "stock": 24,
+      "stock": 17,
       "isNew": false,
       "isBest": false,
       "isFeatured": true,
@@ -1294,7 +1295,7 @@
       "subtotal": 6300,
       "tax": 882.0000000000001,
       "totalPrice": 7182,
-      "status": "pending",
+      "status": "Completed",
       "shippingInfo": {
         "fullName": "amnay mahmoud emam hassan",
         "phone": "01032432312",
@@ -1325,6 +1326,28 @@
         "postalCode": "432"
       },
       "createdAt": "2026-02-15T16:52:35.385Z"
+    },
+    {
+      "id": "d5d8",
+      "userId": "4",
+      "items": [
+        {
+          "productId": "4",
+          "quantity": 7
+        }
+      ],
+      "subtotal": 1897,
+      "tax": 265.58000000000004,
+      "totalPrice": 2162.58,
+      "status": "pending",
+      "shippingInfo": {
+        "fullName": "amnay mahmoud emam hassan",
+        "phone": "01032432312",
+        "address": "Almahdy",
+        "city": "Faiyum",
+        "postalCode": "432"
+      },
+      "createdAt": "2026-02-15T23:58:48.848Z"
     }
   ],
   "carts": [
@@ -1338,6 +1361,26 @@
         },
         {
           "productId": "5",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "648e",
+      "userId": "3",
+      "items": [
+        {
+          "productId": "12",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "f30d",
+      "userId": "4",
+      "items": [
+        {
+          "productId": "4",
           "quantity": 1
         }
       ]

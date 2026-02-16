@@ -19,40 +19,37 @@
   <script type="module" src="data/cart.js"></script>
 </head>
 <body>
-<div class="top-bar bg-dark text-white py-2">
-  <div class="container">
-    <div class="row align-items-center g-3">
 
-      <!-- Search - takes most space on all screens -->
-      <div class="col-12 col-md-8 col-lg-9 mx-auto mx-md-0">
-        <form action="collection.html" method="get" class="search-form" id="searchForm">
-          <div class="input-group input-group-lg">
+
+  <div class="top-bar py-3">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-12">
+        <form action="collection.html" method="get" class="search-form">
+          <div class="input-group-search">
+            <button type="submit" class="search-icon-btn">
+              <i class="bi bi-search"></i>
+            </button>
+
+            
             <input
               type="search"
               name="q"
-              class="form-control border-0 shadow-sm"
-              placeholder="Search products, categories, brands..."
-              aria-label="Search products"
-              id="searchInput"
+              class="form-control search-input-custom"
+              placeholder="Search for clothes, brands and more..."
+
+              aria-label="Search"
               required
-            >
-            <!-- <button
-              type="submit"
-              class="btn btn-primary px-4"
-              id="searchBtn"
-              aria-label="Submit search"
-            >
-              <i class="bi bi-search"></i>
-            </button> -->
+
+
+
+
+              >
           </div>
         </form>
       </div>
 
-      <!-- Optional extra space on large screens (can add phone / promo / language later) -->
-      <div class="col-md-4 col-lg-3 d-none d-md-block text-end">
-        <!-- You can put here: Free Shipping • +20 123 456 789 • EN/AR selector -->
-        <small class="text-white-75">Free shipping on orders over $50</small>
-      </div>
+
 
     </div>
   </div>

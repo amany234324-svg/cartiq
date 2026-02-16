@@ -10,31 +10,72 @@ body{
     font-family: var(--sm-font);
     padding-top: 70px;
 }
- 
+ .auth-link div {
+  transition: transform 0.2s;
+}
+
+.auth-link div:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
 /* search */
 
 /* button */
 /* طريقة 1: margin ثابت على اليمين */
-.top-bar{
-  background-color: #585858;
+.top-bar {
+    background: transparent; /* لكي يندمج مع خلفية الهيدر أو يكون منفصلاً بشكل أنيق */
+    margin-top: 15px;
 }
-.top-bar form {
-  margin: 10px;
+
+.search-form {
+    max-width: 650px; /* تحديد عرض مناسب للسيرش */
+    margin: 0 auto;  /* التوسيط التلقائي */
+}
+
+.input-group-search {
+    background: white;
+    border-radius: 50px; /* جعل الأطراف دائرية تماماً */
+    padding: 5px 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1); /* ظل ناعم */
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+}
+
+.input-group-search:focus-within {
+    box-shadow: 0 10px 30px rgba(94, 96, 206, 0.2); /* زيادة الظل عند الكتابة */
+    transform: translateY(-2px);
+}
+
+.search-input-custom {
+    border: none !important;
+    box-shadow: none !important;
+    padding: 12px 20px !important;
+    font-size: 1rem !important;
+    background: transparent !important;
+}
+
+.search-icon-btn {
+    background: none;
+    border: none;
+    color: var(--primary); /* استخدام اللون البنفسجي الخاص بكِ */
+    font-size: 1.2rem;
+    padding: 0 10px;
+    transition: 0.3s;
+}
+
+.search-icon-btn:hover {
+    color: var(--primary-dark);
+    transform: scale(1.1);
   
-  border-radius: 40px; 
-        /* أو 20px أو 30px حسب اللي يعجبك */
 }
 
-/* طريقة 2: padding داخل الكولوم نفسه */
-.top-bar .text-end {
-  padding-right: 1rem;         /* أو 1.5rem أو 2rem */
-}
-
-
-.top-bar form {
-  margin-left: auto;
-  margin-right: 0.5rem;        /* هيخلي فيه مسافة حلوة من اليمين */
-  margin-left: 1.5rem;        /* هيخلي فيه مسافة حلوة من اليمين */
+/* تعديل لنص الشحن المجاني */
+.promo-text {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #fff;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
 }
 
 .bg-primary{
@@ -82,7 +123,62 @@ a .log:hover{
 .text-primary{
     color: var(--pink)!important;
 }
+/* تنسيق زر المستخدم */
+.user-profile-btn {
+    background: white;
+    border: 1px solid #eee;
+    padding: 5px 15px 5px 5px;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 600;
+    color: var(--text-dark);
+    transition: all 0.3s ease;
+}
 
+.user-profile-btn:hover {
+    background: #f8f9fc;
+    border-color: var(--primary);
+}
+
+/* دائرة الحرف الأول من الاسم */
+.user-avatar {
+    width: 38px;
+    height: 38px;
+    background: var(--primary); /* اللون البنفسجي الخاص بكِ */
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    box-shadow: 0 4px 8px rgba(94, 96, 206, 0.3);
+}
+
+/* إلغاء سهم الدلتا الافتراضي الخاص ببوتستراب (اختياري) */
+.user-profile-btn::after {
+    display: none;
+}
+
+/* تنسيق القائمة المنسدلة */
+.dropdown-menu {
+    border-radius: 12px;
+    padding: 10px;
+    min-width: 200px;
+}
+
+.dropdown-item {
+    padding: 10px 15px;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: 0.2s;
+}
+
+.dropdown-item:hover {
+    background-color: rgba(94, 96, 206, 0.1);
+    color: var(--primary);
+}
 /* navbar */
 .navbar{
     height: 70px;
@@ -106,43 +202,78 @@ a .log:hover{
 }
 
 /* header */
-#header{
-    background: url(../img/product_34.png) top/cover no-repeat ;
-   
-}
-.image{
-    height: 200px;
-    border-radius: 20px;
-    background-color: rgb(230, 227, 224);
-}
-.carousel-inner h1{
-    font-size: 60px;
-    font-family: var(--lg-font);
-}
-.carousel-item .btn{
-    border-color: #fff!important;
-    
-}
-.carousel-item .btn:hover{
-    border-color: var(--pink)!important;
-    background-color: var(--pink);
-    color: #fff;
+#header {
+    /* تدرج لوني جذاب متناسق مع شعار Attire */
+    background: linear-gradient(135deg, #5e60ce 0%, #48bfe3 100%);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
 }
 
-/* title */
-.title h2::before{
-    position: absolute;
+/* إضافة أشكال هندسية خلفية لإعطاء لمسة شياكة */
+#header::before {
     content: "";
-    width: 4px;
-    height: 50px;
-    background-color: var(--pink);
-    left: -20px;
-    top: 50%;
-    -webkit-transform: translateY(-50%);
-        -ms-transform: translateY(-50%);
-            transform: translateY(-50%);
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    top: -100px;
+    right: -50px;
 }
 
+#header::after {
+    content: "";
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 50%;
+    bottom: -50px;
+    left: -30px;
+}
+
+.carousel-inner h2 {
+    font-size: 1.5rem;
+    letter-spacing: 3px;
+    opacity: 0.9;
+}
+
+.carousel-inner h1 {
+    font-size: clamp(2.5rem, 8vw, 5rem); /* حجم خط مرن يتناسب مع الشاشة */
+    font-family: 'Segoe UI', sans-serif;
+    text-shadow: 2px 4px 10px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
+}
+
+/* تنسيق الأزرار لتكون فخمة */
+.carousel-item .btn {
+    padding: 12px 35px;
+    font-weight: 600;
+    border: 2px solid #fff !important;
+    background: transparent;
+    color: #fff;
+    border-radius: 50px; /* زوايا دائرية لشكل أنيق */
+    transition: all 0.4s ease;
+}
+
+.carousel-item .btn:hover {
+    background-color: #fff !important;
+    color: #5e60ce !important;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+
+/* تحسين شكل أسهم التنقل */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    width: 3rem;
+    height: 3rem;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    background-size: 50%;
+}
 
 .footer {
   background-color: #585858;

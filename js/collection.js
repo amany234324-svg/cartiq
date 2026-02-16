@@ -3,9 +3,44 @@ fetch("navbar.html")
   .then((response) => response.text())
   .then((data) => {
     document.getElementById("navbar-placeholder").innerHTML = data;
+     updateUserUI();
+      updateCartCount();
+
   })
   .catch((err) => console.error("Error loading navbar:", err));
+async function updateUserUI() {
+  const auth = isAuthenticated();
+  if (auth.status !== "success") return;
 
+  const userRes = await getCurrentUser();
+
+  if (userRes.status === "success") {
+    const user = userRes.data;
+    const firstName = user.name.split(" ")[0];
+    
+    
+    const authContainer = document.getElementById("auth-link");
+
+    if (authContainer) {
+      
+      authContainer.outerHTML = `
+        <div class="dropdown d-inline-block">
+          <button class="user-profile-btn dropdown-toggle" type="button" id="userMenu" data-bs-toggle="dropdown" aria-expanded="false">
+            <span class="user-avatar">${firstName.charAt(0).toUpperCase()}</span>
+            <span class="d-none d-md-inline ms-1">${firstName}</span>
+          </button>
+          <ul class="dropdown-menu dropdown-menu-end shadow border-0 mt-2" aria-labelledby="userMenu">
+           
+              <a class="dropdown-item text-danger" href="javascript:void(0)" onclick="logout()">
+                <i class="bi bi-box-arrow-right me-2"></i> Logout
+              </a>
+            </li>
+          </ul>
+        </div>
+      `;
+    }
+  }
+}
 // ───────────────────────────────────────────────
 //  Imports
 // ───────────────────────────────────────────────
@@ -206,8 +241,9 @@ document.addEventListener("DOMContentLoaded", async () => {
   const url = window.location.href;
   const searchTerm = url.split("?")[1]?.split("=")[1];
   if (searchTerm) {
-    await showProducts({ search: searchTerm }); // ← Automatically load "Clothes" on page open
+    await showProducts({ search: searchTerm }); 
     return;
   }
-  await showProducts(); // ← Automatically load "Clothes" on page open
+  
+  await showProducts(); 
 });

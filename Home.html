@@ -17,39 +17,26 @@
 </head>
 <body>
 
-<div class="top-bar  text-white py-2">
+<div class="top-bar py-3">
   <div class="container">
-    <div class="row align-items-center g-3">
-
-      <!-- Search - takes most space on all screens -->
-      <div class="col-12 col-md-8 col-lg-8 mx-auto mx-md-0  text-center">
-        <form action="collection.html" method="get" class="search-form" id="searchForm">
-          <div class="input-group input-group-lg">
+    <div class="row align-items-center">
+      <div class="col-12">
+        <form action="collection.html" method="get" class="search-form">
+          <div class="input-group-search">
+            <button type="submit" class="search-icon-btn">
+              <i class="bi bi-search"></i>
+            </button>
+            
             <input
               type="search"
               name="q"
-              class="form-control border-0 shadow-sm col-lg-8"
-              placeholder="Search products, categories, brands..."
-              aria-label="Search products"
-              id="searchInput"
+              class="form-control search-input-custom"
+              placeholder="Search for clothes, brands and more..."
+              aria-label="Search"
               required
             >
-            <!-- <button
-              type="submit"
-              class="btn btn-primary px-4"
-              id="searchBtn"
-              aria-label="Submit search"
-            >
-              <i class="bi bi-search"></i>
-            </button> -->
           </div>
         </form>
-      </div>
-
-      <!-- Optional extra space on large screens (can add phone / promo / language later) -->
-      <div class="col-md-4 col-lg-3 d-none d-md-block text-end">
-        <!-- You can put here: Free Shipping • +20 123 456 789 • EN/AR selector -->
-        <small class="text-white-75">Free shipping on orders over $50</small>
       </div>
 
     </div>
@@ -58,33 +45,43 @@
 <!-- navbar -->
 <div id="navbar-placeholder"></div>
 
-  <!-- باقي محتوى الصفحة هنا -->
 
-  <!-- في نهاية الـ body قبل أي script -->
- 
-<!-- end of navbar -->
 
 <!-- header -->
-<header id = "header" class = "vh-100 carousel slide" data-bs-ride = "carousel" style = "padding-top: 104px;">
-<div class = "container h-100 d-flex align-items-center carousel-inner">
-<div class = "text-center carousel-item active">
-<h2 class = "text-capitalize text-white">best collection</h2>
-<h1 class = "text-uppercase py-2 fw-bold text-white">new arrivals</h1>
-<a href = "collection.html" class = "btn btn-primary mt-3 text-uppercase">shop now</a>
-</div>
-<div class = "text-center carousel-item">
-<h2 class = "text-capitalize text-white">best price & offer</h2>
-<h1 class = "text-uppercase py-2 fw-bold text-white">new season</h1>
-<a href = "checkout.html" class = "btn btn-primary  mt-3 text-uppercase">buy now</a>
-</div>
-</div>
+<header id="header" class="vh-100 carousel slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+        <button type="button" data-bs-target="#header" data-bs-slide-to="0" class="active"></button>
+        <button type="button" data-bs-target="#header" data-bs-slide-to="1"></button>
+    </div>
 
-<button class = "carousel-control-prev" type = "button" data-bs-target="#header" data-bs-slide = "prev">
-<span class = "carousel-control-prev-icon"></span>
-</button>
-<button class = "carousel-control-next" type = "button" data-bs-target="#header" data-bs-slide = "next">
-<span class = "carousel-control-next-icon"></span>
-</button>
+    <div class="container h-100 d-flex align-items-center justify-content-center">
+        <div class="carousel-inner">
+            
+            <div class="text-center carousel-item active">
+                <h2 class="text-capitalize text-white animate__animated animate__fadeInDown">Exclusive Collection</h2>
+                <h1 class="text-uppercase py-2 fw-bold text-white animate__animated animate__zoomIn">New Arrivals</h1>
+                <p class="text-white-50 mb-4 d-none d-md-block">Discover the latest trends in modern fashion.</p>
+                <a href="collection.html" class="btn btn-primary text-uppercase">Shop Now</a>
+            </div>
+
+            <div class="text-center carousel-item">
+                <h2 class="text-capitalize text-white">Best Price & Offers</h2>
+                <h1 class="text-uppercase py-2 fw-bold text-white">New Season</h1>
+                <p class="text-white-50 mb-4 d-none d-md-block">Up to 50% off on selected items this week.</p>
+                <a href="collection.html" class="btn btn-primary text-uppercase">Buy Now</a>
+            </div>
+
+        </div>
+    </div>
+
+    <button class="carousel-control-prev" type="button" data-bs-target="#header" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#header" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
 </header>
 <!-- end of header -->
  <!--main-->
@@ -154,189 +151,11 @@
   </div>
 </footer>
 
-
-
-
-<!-- jquery -->
-<!-- ... باقي الـ HTML كما هو حتى نهاية collection-list ... -->
-
-<!-- الجزء الخاص بالـ script (استبدلي الجزء القديم بهذا) -->
-<!-- <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-<script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script> -->
-
-
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <script src="https://unpkg.com/imagesloaded@5/imagesloaded.pkgd.min.js"></script>
 <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script type="module" src="js/script.js"></script>
-<!-- <script type="module">
-
-// ================= IMPORT API (لازم أول حاجة) =================
-import { isAuthenticated, getCurrentUser } from './data/auth.js';
-import { getAllProducts } from './data/products.js';
-import { getCurrentUserCartPopulated, addToCart } from './data/cart.js';
-
-
-// ================= DOM READY =================
-document.addEventListener("DOMContentLoaded", () => {
-
-  const productsContainer = document.getElementById("products-container");
-  const cartCountEl = document.getElementById("cart-count");
-
-  if (!productsContainer) {
-    console.error("products-container not found");
-    return;
-  }
-
-  // ================= LOAD NAVBAR =================
-  fetch('navbar.html')
-    .then(res => res.text())
-    .then(data => {
-      document.getElementById('navbar-placeholder').innerHTML = data;
-      updateUserUI();
-      updateCartCount();
-    })
-    .catch(err => console.error("Navbar load error:", err));
-
-
-  // ================= UPDATE USER NAME =================
-  async function updateUserUI() {
-    const auth = isAuthenticated();
-    if (auth.status !== "success") return;
-
-    const userRes = await getCurrentUser();
-
-    if (userRes.status === "success") {
-      const userName = userRes.data.name || "User";
-      const loginLink = document.getElementById("loginLink");
-
-      if (loginLink) {
-        loginLink.innerHTML = `
-          Welcome ${userName}
-          <button onclick="logout()" class="btn btn-sm btn-danger ms-2">
-            Logout
-          </button>
-        `;
-        loginLink.href = "#";
-      }
-    }
-  }
-
-
-  // ================= LOGOUT =================
-  window.logout = function () {
-    localStorage.clear();
-    window.location.reload();
-  };
-
-
-  // ================= UPDATE CART COUNT =================
-async function updateCartCount() {
-  const cartCountEl = document.getElementById("cart-count");
-  if (!cartCountEl) return;
-
-  const cartRes = await getCurrentUserCartPopulated();
-
-  if (cartRes.status === "success" && cartRes.data?.items) {
-    const total = cartRes.data.items.reduce(
-      (sum, item) => sum + item.quantity,
-      0
-    );
-
-    cartCountEl.textContent = total;
-  } else {
-    cartCountEl.textContent = "0";
-  }
-}
-  // ================= LOAD PRODUCTS =================
- async function loadProducts() {
-  productsContainer.innerHTML = `
-    <div class="col-12 text-center py-5">
-      <div class="spinner-border"></div>
-    </div>
-  `;
-
-  const result = await getAllProducts();
-
-  if (result.status !== "success") {
-    productsContainer.innerHTML = `<h3>Error loading products</h3>`;
-    return;
-  }
-
-  productsContainer.innerHTML = "";
-
-  result.data.forEach(product => {
-
-    let classes = "grid-item col-6 col-md-4 col-lg-3";
-
-    if (product.isBest) classes += " best";
-    if (product.isFeatured) classes += " feat";
-    if (product.isNew) classes += " new";
-
-    const html = `
-      <div class="${classes}">
-        <div class="card h-100">
-          <a href="details.html?id=${product.id}" class="text-decoration-none">
-            <img src="${product.image}" class="card-img-top"></a>
-          <div class="card-body text-center">
-            <h5>${product.name}</h5>
-            <p>${product.price} EGP</p>
-            <button class="btn btn-primary add-to-cart" data-id="${product.id}">
-              Add to Cart
-            </button>
-          </div>
-        </div>
-      </div>
-    `;
-
-    productsContainer.insertAdjacentHTML("beforeend", html);
-  });
-
-  // تشغيل الفلتر
-  const $grid = $("#products-container").isotope({
-    itemSelector: ".grid-item",
-    layoutMode: "fitRows"
-  });
-
-  $(".filter-button-group").on("click", "button", function () {
-    $(".filter-button-group .btn").removeClass("active-filter-btn");
-    $(this).addClass("active-filter-btn");
-
-    const filterValue = $(this).attr("data-filter");
-    $grid.isotope({ filter: filterValue });
-  });
-}
-
-  // ================= ADD TO CART =================
-  productsContainer.addEventListener("click", async (e) => {
-    if (!e.target.classList.contains("add-to-cart")) return;
-
-    const auth = isAuthenticated();
-
-    if (auth.status !== "success") {
-      alert("Please login first");
-      window.location.href = "login.html";
-      return;
-    }
-
-    const productId = e.target.dataset.id;
-
-    const res = await addToCart(productId, 1);
-
-    if (res.status === "success") {
-      alert("Added to cart");
-      updateCartCount();
-    } else {
-      alert(res.message || "Failed");
-    }
-  });
-
-  loadProducts();
-
-});
-
-</script> -->
 
 </body>
 </html>
