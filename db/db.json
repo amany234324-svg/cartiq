@@ -74,10 +74,10 @@
   "products": [
     {
       "id": "1",
-      "name": "Asics 556",
+      "name": "Asics 555",
       "price": "295",
       "category": "Clothes",
-      "image": "img\\products\\product-1771201475670.jpg",
+      "image": "img\\products\\product-1771207116556.jpg",
       "stock": "28",
       "isNew": true,
       "isBest": false,
@@ -1298,6 +1298,15 @@
       "category": "Clothes",
       "description": "Classic retro-inspired sneakers with modern comfort, perfect for everyday wear and light workouts.",
       "image": "https://picsum.photos/400?1"
+    },
+    {
+      "id": "063d",
+      "name": "new added product",
+      "price": "50",
+      "stock": "10",
+      "category": "Accessories",
+      "description": "new added product description",
+      "image": "img\\products\\product-1771207878004.jpg"
     }
   ],
   "orders": [

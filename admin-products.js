@@ -139,6 +139,7 @@ document
     if (!validatedData.valid) {
       errorMsg.classList.remove('d-none');
       errorMsg.textContent = validatedData.error;
+      return;
     }
 
     let res;
