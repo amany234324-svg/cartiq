@@ -165,7 +165,7 @@ async function updateUserUI() {
     const auth = isAuthenticated();
 
     if (auth.status !== "success") {
-      alert("Please login first");
+    
       window.location.href = "login.html";
       return;
     }
