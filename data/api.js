@@ -93,8 +93,8 @@ export async function getOne(endpoint, params) {
  *   - { status: 'fail', message: '...' } — not found (e.g. 404).
  *   - { status: 'error', message: '...' } — request failed (e.g. network error).
  */
-export async function getAll(endpoint) {
-  return await get(endpoint);
+export async function getAll(endpoint, params) {
+  return await get(endpoint, params);
 }
 
 /**

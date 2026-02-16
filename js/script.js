@@ -1,15 +1,15 @@
 // ================= IMPORT API   ) =================
-import { isAuthenticated, getCurrentUser } from "../data/auth.js";
-import { getAllProducts } from "../data/products.js";
-import { getCurrentUserCartPopulated, addToCart } from "../data/cart.js";
+import { isAuthenticated, getCurrentUser } from '../data/auth.js';
+import { getAllProducts } from '../data/products.js';
+import { getCurrentUserCartPopulated, addToCart } from '../data/cart.js';
 
 export async function updateCartCount() {
-  const cartCountEl = document.getElementById("cart-count");
+  const cartCountEl = document.getElementById('cart-count');
   if (!cartCountEl) return;
 
   const cartRes = await getCurrentUserCartPopulated();
 
-  if (cartRes.status === "success" && cartRes.data?.items) {
+  if (cartRes.status === 'success' && cartRes.data?.items) {
     const total = cartRes.data.items.reduce(
       (sum, item) => sum + item.quantity,
       0,
@@ -17,45 +17,44 @@ export async function updateCartCount() {
 
     cartCountEl.textContent = total;
   } else {
-    cartCountEl.textContent = "0";
+    cartCountEl.textContent = '0';
   }
 }
 
 // ================= DOM READY =================
-document.addEventListener("DOMContentLoaded", () => {
-  const productsContainer = document.getElementById("products-container");
-  const cartCountEl = document.getElementById("cart-count");
+document.addEventListener('DOMContentLoaded', () => {
+  const productsContainer = document.getElementById('products-container');
+  const cartCountEl = document.getElementById('cart-count');
 
   if (!productsContainer) {
-    console.error("products-container not found");
+    console.error('products-container not found');
     return;
   }
 
   // ================= LOAD NAVBAR =================
-fetch("navbar.html")
-.then((res) => res.text())
-.then((data) => {
-  document.getElementById("navbar-placeholder").innerHTML = data;
-  updateUserUI();
-  updateCartCount();
-})
-.catch((err) => console.error("Navbar load error:", err));
-async function updateUserUI() {
-  const auth = isAuthenticated();
-  if (auth.status !== "success") return;
+  fetch('navbar.html')
+    .then((res) => res.text())
+    .then((data) => {
+      document.getElementById('navbar-placeholder').innerHTML = data;
+      updateUserUI();
+      updateCartCount();
+    })
+    .catch((err) => console.error('Navbar load error:', err));
+  async function updateUserUI() {
+    const auth = isAuthenticated();
+    if (auth.status !== 'success') return;
 
-  const userRes = await getCurrentUser();
+    const userRes = await getCurrentUser();
 
-  if (userRes.status === "success") {
-    const user = userRes.data;
-    const firstName = user.name.split(" ")[0];
-    
-    // نبحث عن عنصر تسجيل الدخول فقط
-    const authContainer = document.getElementById("auth-link");
+    if (userRes.status === 'success') {
+      const user = userRes.data;
+      const firstName = user.name.split(' ')[0];
 
-    if (authContainer) {
-   
-      authContainer.outerHTML = `
+      // نبحث عن عنصر تسجيل الدخول فقط
+      const authContainer = document.getElementById('auth-link');
+
+      if (authContainer) {
+        authContainer.outerHTML = `
         <div class="dropdown d-inline-block">
           <button class="user-profile-btn dropdown-toggle" type="button" id="userMenu" data-bs-toggle="dropdown" aria-expanded="false">
             <span class="user-avatar">${firstName.charAt(0).toUpperCase()}</span>
@@ -70,11 +69,9 @@ async function updateUserUI() {
           </ul>
         </div>
       `;
+      }
     }
   }
-}
-
-
 
   // ================= LOGOUT =================
   window.logout = function () {
@@ -110,19 +107,19 @@ async function updateUserUI() {
 
     const result = await getAllProducts(options);
 
-    if (result.status !== "success") {
+    if (result.status !== 'success') {
       productsContainer.innerHTML = `<h3>Error loading products</h3>`;
       return;
     }
 
-    productsContainer.innerHTML = "";
+    productsContainer.innerHTML = '';
 
     result.data.forEach((product) => {
-      let classes = "grid-item col-6 col-md-4 col-lg-3";
+      let classes = 'grid-item col-6 col-md-4 col-lg-3';
 
-      if (product.isBest) classes += " best";
-      if (product.isFeatured) classes += " feat";
-      if (product.isNew) classes += " new";
+      if (product.isBest) classes += ' best';
+      if (product.isFeatured) classes += ' feat';
+      if (product.isNew) classes += ' new';
 
       const html = `
       <div class="${classes}">
@@ -140,33 +137,35 @@ async function updateUserUI() {
       </div>
     `;
 
-      productsContainer.insertAdjacentHTML("beforeend", html);
+      productsContainer.insertAdjacentHTML('beforeend', html);
     });
 
-    // تشغيل الفلتر
-    const $grid = $("#products-container").isotope({
-      itemSelector: ".grid-item",
-      layoutMode: "fitRows",
-    });
+    // Initialize Isotope after images load so layout height is correct (fixes "only images visible" on first load)
+    const $gridEl = $('#products-container');
+    $gridEl.imagesLoaded(function () {
+      const $grid = $gridEl.isotope({
+        itemSelector: '.grid-item',
+        layoutMode: 'fitRows',
+      });
 
-    $(".filter-button-group").on("click", "button", function () {
-      $(".filter-button-group .btn").removeClass("active-filter-btn");
-      $(this).addClass("active-filter-btn");
+      $('.filter-button-group').on('click', 'button', function () {
+        $('.filter-button-group .btn').removeClass('active-filter-btn');
+        $(this).addClass('active-filter-btn');
 
-      const filterValue = $(this).attr("data-filter");
-      $grid.isotope({ filter: filterValue });
+        const filterValue = $(this).attr('data-filter');
+        $grid.isotope({ filter: filterValue });
+      });
     });
   }
 
   // ================= ADD TO CART =================
-  productsContainer.addEventListener("click", async (e) => {
-    if (!e.target.classList.contains("add-to-cart")) return;
+  productsContainer.addEventListener('click', async (e) => {
+    if (!e.target.classList.contains('add-to-cart')) return;
 
     const auth = isAuthenticated();
 
-    if (auth.status !== "success") {
-    
-      window.location.href = "login.html";
+    if (auth.status !== 'success') {
+      window.location.href = 'login.html';
       return;
     }
 
@@ -174,20 +173,19 @@ async function updateUserUI() {
 
     const res = await addToCart(productId, 1);
 
-    if (res.status === "success") {
-     
+    if (res.status === 'success') {
       updateCartCount();
     } else {
-      alert(res.message || "Failed");
+      alert(res.message || 'Failed');
     }
   });
 
   loadProducts();
 
-  const searchForm = document.getElementById("searchForm");
-  searchForm.addEventListener("submit", (e) => {
+  const searchForm = document.getElementById('searchForm');
+  searchForm.addEventListener('submit', (e) => {
     e.preventDefault();
-    const searchInput = document.getElementById("searchInput").value;
+    const searchInput = document.getElementById('searchInput').value;
 
     // loadProducts({search: searchInput})
     window.location.href = `collection.html?search=${searchInput}`;

@@ -90,7 +90,7 @@
       "price": 203,
       "category": "Clothes",
       "image": "https://picsum.photos/400?3",
-      "stock": 5,
+      "stock": 4,
       "isNew": false,
       "isBest": false,
       "isFeatured": false,
@@ -114,7 +114,7 @@
       "price": "84",
       "category": "Clothes",
       "image": "https://picsum.photos/400?5",
-      "stock": "10",
+      "stock": 9,
       "isNew": true,
       "isBest": false,
       "isFeatured": false,
@@ -126,7 +126,7 @@
       "price": 390,
       "category": "Shoes",
       "image": "https://picsum.photos/400?6",
-      "stock": 11,
+      "stock": 8,
       "isNew": false,
       "isBest": false,
       "isFeatured": false,
@@ -162,7 +162,7 @@
       "price": 280,
       "category": "Electronics",
       "image": "https://picsum.photos/400?9",
-      "stock": 5,
+      "stock": 2,
       "isNew": false,
       "isBest": false,
       "isFeatured": false,
@@ -1380,6 +1380,58 @@
         "postalCode": "432"
       },
       "createdAt": "2026-02-15T23:58:48.848Z"
+    },
+    {
+      "id": "116c",
+      "userId": "2",
+      "items": [
+        {
+          "productId": "3",
+          "quantity": 1
+        },
+        {
+          "productId": "9",
+          "quantity": 3
+        }
+      ],
+      "subtotal": 1043,
+      "tax": 146.02,
+      "totalPrice": 1189.02,
+      "status": "Pending",
+      "shippingInfo": {
+        "fullName": "Bob",
+        "phone": "01286971732",
+        "address": "Cairo",
+        "city": "Cairo",
+        "postalCode": "11341"
+      },
+      "createdAt": "2026-02-16T03:51:07.309Z"
+    },
+    {
+      "id": "0064",
+      "userId": "3",
+      "items": [
+        {
+          "productId": "5",
+          "quantity": 1
+        },
+        {
+          "productId": "6",
+          "quantity": 3
+        }
+      ],
+      "subtotal": 1254,
+      "tax": 175.56000000000003,
+      "totalPrice": 1429.56,
+      "status": "Delivered",
+      "shippingInfo": {
+        "fullName": "Charlie Davis",
+        "phone": "01286971732",
+        "address": "Cairo",
+        "city": "Cairo",
+        "postalCode": "11341"
+      },
+      "createdAt": "2026-02-16T04:11:16.512Z"
     }
   ],
   "carts": [
@@ -1398,26 +1450,6 @@
       ]
     },
     {
-      "id": "648e",
-      "userId": "3",
-      "items": [
-        {
-          "productId": "12",
-          "quantity": 1
-        }
-      ]
-    },
-    {
-      "id": "f30d",
-      "userId": "4",
-      "items": [
-        {
-          "productId": "4",
-          "quantity": 1
-        }
-      ]
-    },
-    {
       "id": "5a10",
       "userId": "9",
       "items": [
@@ -1425,6 +1457,16 @@
           "productId": "5",
           "quantity": 1
         },
+        {
+          "productId": "4",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "8c72",
+      "userId": "2",
+      "items": [
         {
           "productId": "4",
           "quantity": 1
