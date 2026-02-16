@@ -1321,7 +1321,7 @@
       "subtotal": 6300,
       "tax": 882.0000000000001,
       "totalPrice": 7182,
-      "status": "pending",
+      "status": "Paid",
       "shippingInfo": {
         "fullName": "amnay mahmoud emam hassan",
         "phone": "01032432312",
@@ -1343,7 +1343,7 @@
       "subtotal": 93,
       "tax": 13.020000000000001,
       "totalPrice": 106.02,
-      "status": "pending",
+      "status": "Delivered",
       "shippingInfo": {
         "fullName": "amnay mahmoud emam hassan",
         "phone": "01032432312",
