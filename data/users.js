@@ -1,6 +1,6 @@
 import { getOne, getAll, post, patch, remove } from './api.js';
 
-async function getUserById(id) {
+export async function getUserById(id) {
   if (!id) {
     return { status: 'fail', error: 'User ID is required' };
   }

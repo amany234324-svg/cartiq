@@ -78,7 +78,7 @@
       "name": "Asics 555",
       "price": "295",
       "category": "Clothes",
-      "image": "https://picsum.photos/400?1",
+      "image": "img\\products\\product-1771207116556.jpg",
       "stock": "28",
       "isNew": true,
       "isBest": false,
@@ -91,7 +91,7 @@
       "price": "55",
       "category": "Clothes",
       "image": "https://picsum.photos/400?2",
-      "stock": "24",
+      "stock": "25",
       "isNew": true,
       "isBest": true,
       "isFeatured": false,
@@ -124,10 +124,10 @@
     {
       "id": "5",
       "name": "Adidas Polo Shirt",
-      "price": 84,
+      "price": "84",
       "category": "Clothes",
       "image": "https://picsum.photos/400?5",
-      "stock": 9,
+      "stock": "10",
       "isNew": true,
       "isBest": false,
       "isFeatured": false,
@@ -159,11 +159,11 @@
     },
     {
       "id": "8",
-      "name": "Uniqlo Polo Shirt",
-      "price": 325,
+      "name": "Uniqlo Polo T-Shirt",
+      "price": "405",
       "category": "Clothes",
       "image": "https://picsum.photos/400?8",
-      "stock": 15,
+      "stock": "15",
       "isNew": false,
       "isBest": true,
       "isFeatured": false,
@@ -232,10 +232,10 @@
     {
       "id": "14",
       "name": "Sony Power Bank",
-      "price": 219,
+      "price": "219",
       "category": "Electronics",
       "image": "https://picsum.photos/400?14",
-      "stock": 28,
+      "stock": "28",
       "isNew": false,
       "isBest": false,
       "isFeatured": false,
@@ -1272,6 +1272,42 @@
       "isBest": false,
       "isFeatured": false,
       "description": "Modern lifestyle sneakers with bold colors and cushioned comfort."
+    },
+    {
+      "id": "69f7",
+      "name": "Adidas Polo Shirt",
+      "price": "84",
+      "stock": "10",
+      "category": "Clothes",
+      "description": "Breathable performance polo shirt with sporty styling and superior comfort.",
+      "image": "https://picsum.photos/400?5"
+    },
+    {
+      "id": "36f9",
+      "name": "H&M Sweater",
+      "price": "55",
+      "stock": "25",
+      "category": "Clothes",
+      "description": "Cozy cotton sweater with a relaxed fit, ideal for casual winter layering.",
+      "image": "https://picsum.photos/400?2"
+    },
+    {
+      "id": "0b6d",
+      "name": "Asics 555",
+      "price": "295",
+      "stock": "28",
+      "category": "Clothes",
+      "description": "Classic retro-inspired sneakers with modern comfort, perfect for everyday wear and light workouts.",
+      "image": "https://picsum.photos/400?1"
+    },
+    {
+      "id": "063d",
+      "name": "new added product",
+      "price": "50",
+      "stock": "10",
+      "category": "Accessories",
+      "description": "new added product description",
+      "image": "img\\products\\product-1771207878004.jpg"
     }
   ],
   "orders": [
@@ -1295,7 +1331,7 @@
       "subtotal": 6300,
       "tax": 882.0000000000001,
       "totalPrice": 7182,
-      "status": "Completed",
+      "status": "Paid",
       "shippingInfo": {
         "fullName": "amnay mahmoud emam hassan",
         "phone": "01032432312",
@@ -1317,7 +1353,7 @@
       "subtotal": 93,
       "tax": 13.020000000000001,
       "totalPrice": 106.02,
-      "status": "pending",
+      "status": "Delivered",
       "shippingInfo": {
         "fullName": "amnay mahmoud emam hassan",
         "phone": "01032432312",

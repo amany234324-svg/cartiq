@@ -98,6 +98,7 @@ async function getAllOrders(userId) {
  *   - { status: 'fail', message: '...' } or { status: 'error', message: '...' } — from getAllOrders/API.
  */
 async function getCurrentUserOrders() {
+  console.log('called');
   const authenticationResult = isAuthenticated();
   if (authenticationResult.status === 'fail') return authenticationResult;
 
@@ -239,8 +240,13 @@ async function getOrdersStatistics() {
   let totalRevenue = 0;
   let pendingOrders = 0;
   orders.data.forEach((order) => {
-    totalRevenue += order.totalPrice;
-    if (order.status === 'pending') pendingOrders++;
+    if (
+      order.status.toLowerCase() === 'paid' ||
+      order.status.toLowerCase() === 'delivered'
+    ) {
+      totalRevenue += order.totalPrice;
+    }
+    if (order.status.toLowerCase() === 'pending') pendingOrders++;
   });
 
   const totalProducts = (await getAllProducts()).data.length;

@@ -69,8 +69,24 @@ async function createProduct(productData) {
   if (!productValidation.valid)
     return { status: 'fail', message: productValidation.error };
 
+  // Save image through the server and get the path of the saved image
+  const productImageResponse = await fetch(
+    'http://localhost:8000/api/products',
+    {
+      method: 'POST',
+      body: productData.image,
+    },
+  );
+
+  let productImagePath;
+  if (productImageResponse.ok) {
+    const productImageResponseJson = await productImageResponse.json();
+
+    productImagePath = productImageResponseJson.data.file;
+  }
+
   // Create product
-  return await post('products', productData);
+  return await post('products', { ...productData, image: productImagePath });
 }
 
 /**
@@ -91,6 +107,25 @@ async function updateProductById(id, data) {
   const productValidation = validateProductData(data, false);
   if (!productValidation.valid)
     return { status: 'fail', message: productValidation.error };
+
+  // Save image through the server and get the path of the saved image
+  if (data.image) {
+    const productImageResponse = await fetch(
+      'http://localhost:8000/api/products',
+      {
+        method: 'POST',
+        body: data.image,
+      },
+    );
+
+    let productImagePath;
+    if (productImageResponse.ok) {
+      const productImageResponseJson = await productImageResponse.json();
+
+      productImagePath = productImageResponseJson.data.file;
+    }
+    return await patch(`products/${id}`, { ...data, image: productImagePath });
+  }
 
   return await patch(`products/${id}`, data);
 }
