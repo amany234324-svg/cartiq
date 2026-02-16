@@ -1,6 +1,5 @@
 import { login } from "../data/auth.js";
 import { validateEmail, validatePassword } from "../utils/validation.js";
-
 // Toggle password visibility
 document.querySelector(".toggle-password")?.addEventListener("click", function () {
     const passwordInput = document.getElementById("password");
@@ -30,43 +29,37 @@ document.getElementById("loginForm")?.addEventListener("submit", async function 
         return;
     }
 
-    // اختياري: عرض حالة التحميل على الزر
+    
     if (loginBtn) {
         loginBtn.disabled = true;
         loginBtn.innerHTML = '<span class="spinner-border spinner-border-sm"></span> Signing in...';
     }
 
     try {
-        // استدعاء دالة login من auth.js
+        
         const result = await login(email, password);
 
-        console.log("Login result:", result); // للتصحيح – يمكنك حذفه لاحقًا
+        console.log("Login result:", result);
 
         if (result.status === "success") {
-            // حفظ اسم المستخدم (اختياري – مفيد لعرضه في الـ navbar لاحقًا)
-            // localStorage.setItem("userName", result.data.name || "User");
-
-            // عرض رسالة نجاح
+            
             errorMsg.classList.remove("text-danger");
             errorMsg.classList.add("text-success");
-            errorMsg.textContent = "تم تسجيل الدخول بنجاح! جاري التوجيه...";
+            errorMsg.textContent = "...";
             errorMsg.classList.remove("d-none");
 
-            // الانتظار ثواني بسيطة عشان يشوف الرسالة (اختياري)
+        
             if(result.data.role ==='customer') {
 
               setTimeout(() => {
-                  window.location.href = "Home.html";  // ← غيري الاسم لو الملف مثلاً home.html أو index.html
-              }, 1200); // 1.2 ثانية – يمكنك تقلليها أو تزوديها
+                  window.location.href = "Home.html";    }, 1200); 
             } else {
               setTimeout(() => {
-                  window.location.href = "admin-dashboard.html";  // ← غيري الاسم لو الملف مثلاً home.html أو index.html
-              }, 1200); // 1.2 ثانية – يمكنك تقلليها أو تزوديها
-              
+                  window.location.href = "admin-dashboard.html";   }, 1200);   
             }
 
         } else {
-            // فشل تسجيل الدخول
+             
             errorMsg.textContent = result.message || "Incorrect email or password";
             errorMsg.classList.remove("text-success");
             errorMsg.classList.add("text-danger");
@@ -74,23 +67,20 @@ document.getElementById("loginForm")?.addEventListener("submit", async function 
         }
     } catch (err) {
         console.error("Login error:", err);
-        errorMsg.textContent = "حدث خطأ في الاتصال بالخادم، حاول مرة أخرى";
+        errorMsg.textContent = "";
         errorMsg.classList.remove("d-none");
     } finally {
-        // إرجاع الزر لحالته الطبيعية
+ 
         if (loginBtn) {
             loginBtn.disabled = false;
             loginBtn.innerHTML = "Get Started";
         }
     }
     if (result.status === "success") {
-    // حفظ الاسم عشان نستخدمه بسرعة في الـ navbar
-    // localStorage.setItem("userName", result.data.name || result.data.email.split('@')[0]);
-
-    // عرض رسالة نجاح
+   
     errorMsg.classList.remove("text-danger");
     errorMsg.classList.add("text-success");
-    errorMsg.textContent = "تم تسجيل الدخول بنجاح! جاري التوجيه...";
+    errorMsg.textContent = "";
     errorMsg.classList.remove("d-none");
 
     setTimeout(() => {

@@ -1,4 +1,4 @@
-// ================= IMPORT API (لازم أول حاجة) =================
+// ================= IMPORT API   ) =================
 import { isAuthenticated, getCurrentUser } from "../data/auth.js";
 import { getAllProducts } from "../data/products.js";
 import { getCurrentUserCartPopulated, addToCart } from "../data/cart.js";
@@ -40,29 +40,41 @@ fetch("navbar.html")
   updateCartCount();
 })
 .catch((err) => console.error("Navbar load error:", err));
+async function updateUserUI() {
+  const auth = isAuthenticated();
+  if (auth.status !== "success") return;
 
-  // ================= UPDATE USER NAME =================
-  async function updateUserUI() {
-    const auth = isAuthenticated();
-    if (auth.status !== "success") return;
+  const userRes = await getCurrentUser();
 
-    const userRes = await getCurrentUser();
+  if (userRes.status === "success") {
+    const user = userRes.data;
+    const firstName = user.name.split(" ")[0];
+    
+    // نبحث عن عنصر تسجيل الدخول فقط
+    const authContainer = document.getElementById("auth-link");
 
-    if (userRes.status === "success") {
-      const userName = userRes.data.name || "User";
-      const loginLink = document.getElementById("loginLink");
-
-      if (loginLink) {
-        loginLink.innerHTML = `
-          Welcome ${userName}
-          <button onclick="logout()" class="btn btn-sm btn-danger ms-2">
-            Logout
+    if (authContainer) {
+   
+      authContainer.outerHTML = `
+        <div class="dropdown d-inline-block">
+          <button class="user-profile-btn dropdown-toggle" type="button" id="userMenu" data-bs-toggle="dropdown" aria-expanded="false">
+            <span class="user-avatar">${firstName.charAt(0).toUpperCase()}</span>
+            <span class="d-none d-md-inline ms-1">${firstName}</span>
           </button>
-        `;
-        loginLink.href = "#";
-      }
+          <ul class="dropdown-menu dropdown-menu-end shadow border-0 mt-2" aria-labelledby="userMenu">
+           
+              <a class="dropdown-item text-danger" href="javascript:void(0)" onclick="logout()">
+                <i class="bi bi-box-arrow-right me-2"></i> Logout
+              </a>
+            </li>
+          </ul>
+        </div>
+      `;
     }
   }
+}
+
+
 
   // ================= LOGOUT =================
   window.logout = function () {
@@ -163,7 +175,7 @@ fetch("navbar.html")
     const res = await addToCart(productId, 1);
 
     if (res.status === "success") {
-      alert("Added to cart");
+     
       updateCartCount();
     } else {
       alert(res.message || "Failed");
