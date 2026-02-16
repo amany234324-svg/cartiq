@@ -23,12 +23,12 @@ async function displayAdminInfo() {
   }
 }
 
-async function loadOrders() {
+async function loadOrders(options) {
   const tbody = document.querySelector('table tbody');
   tbody.innerHTML =
     '<tr><td colspan="6" class="text-center">Loading orders...</td></tr>';
 
-  const res = await getAllOrders();
+  const res = await getAllOrders(options);
   if (res.status === 'success') {
     tbody.innerHTML = '';
 
@@ -119,8 +119,12 @@ async function openOrderModal(order, customerName) {
 document
   .getElementById('statusFilter')
   .addEventListener('change', function (e) {
-    // const selectedStatus = e.target.value;
-    // loadOrders({ status: selectedStatus });
+    const selectedStatus = e.target.value;
+    if (selectedStatus === 'Status: All') {
+      loadOrders();
+      return;
+    }
+    loadOrders({ status: selectedStatus });
   });
 
 //ز(Logout)

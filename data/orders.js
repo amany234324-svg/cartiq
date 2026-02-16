@@ -249,7 +249,7 @@ async function getOrdersStatistics() {
   });
 
   const totalProducts = (await getAllProducts()).data.length;
-  const customers = (await getAll('users')).data.length;
+  const customers = (await getAll('users', { role: 'customer' })).data.length;
 
   return {
     status: 'success',
