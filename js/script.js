@@ -124,11 +124,11 @@ document.addEventListener('DOMContentLoaded', () => {
       const html = `
       <div class="${classes}">
         <div class="card h-100">
-          <a href="details.html?id=${product.id}" class="text-decoration-none">
-            <img src="${product.image}" class="card-img-top"></a>
-          <div class="card-body text-center">
-            <h5>${product.name}</h5>
-            <p>${product.price} EGP</p>
+          <a href="details.html?id=${product.id}" class="text-decoration-none d-block">
+            <img src="${product.image}" class="card-img-top" alt="${product.name}"></a>
+          <div class="card-body text-center d-flex flex-column">
+            <h5 class="card-title">${product.name}</h5>
+            <p class="card-text mb-2">${product.price} EGP</p>
             <button class="btn btn-primary add-to-cart" data-id="${product.id}">
               Add to Cart
             </button>
