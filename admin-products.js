@@ -135,7 +135,10 @@ document
     //   return;
     // }
 
-    const validatedData = validateProductData(productData);
+    let create = true;
+    if (productId) create = false;
+
+    const validatedData = validateProductData(productData, create);
     if (!validatedData.valid) {
       errorMsg.classList.remove('d-none');
       errorMsg.textContent = validatedData.error;

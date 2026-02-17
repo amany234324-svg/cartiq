@@ -383,10 +383,10 @@
     {
       "id": "1",
       "name": "Sony Portable Projector",
-      "price": 271,
+      "price": "271",
       "category": "Electronics",
       "image": "https://images.unsplash.com/photo-1478720568477-152d9b164e26?w=500",
-      "stock": 24,
+      "stock": "24",
       "isNew": false,
       "isBest": false,
       "isFeatured": true,
