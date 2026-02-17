@@ -114,24 +114,20 @@ form.addEventListener('submit', async function (e) {
       return;
     }
 
-    // Success → show toast notification
     const toast = new bootstrap.Toast(document.getElementById('successToast'));
     toast.show();
 
-    // Redirect to orders page after short delay
     window.location.href = 'customer-order.html';
-    // setTimeout(() => {
-    //   window.location.href = "customer-order.html";
-    // }, 1000);
+    
   } catch (err) {
     console.error('Checkout error:', err);
     alert('An error occurred while placing the order\n' + err.message);
   }
 });
 
-// ────────────────────────────────────────────────
+
 // Run when page loads
-// ────────────────────────────────────────────────
+
 document.addEventListener('DOMContentLoaded', async () => {
   await renderCheckout();
 });

@@ -1,8 +1,4 @@
-// Admin Protection
-// const role = localStorage.getItem("role");
-// if (role !== "admin") {
-//     window.location.href = "login.html";
-// }
+
 
 import { hasRole, getCurrentUser, logout } from './data/auth.js';
 import {
@@ -15,11 +11,9 @@ import {
 import { validateProductData } from './utils/validation.js';
 
 if (hasRole('admin').status === 'fail') {
-  // console.log(hasRole('admin').message)
   window.location.href = 'login.html';
 }
 
-// let products = JSON.parse(localStorage.getItem("products")) || [];
 const productModal = new bootstrap.Modal(
   document.getElementById('productModal'),
 );
@@ -27,7 +21,6 @@ const productModal = new bootstrap.Modal(
 let searchInput = document.getElementById('searchInput');
 
 window.addEventListener('load', async () => {
-  //   const products = await getAllProducts();
   const userRes = await getCurrentUser();
   if (userRes.status === 'success') {
     const adminData = userRes.data;
@@ -61,7 +54,6 @@ async function renderProducts(options) {
   const res = await getAllProducts(options);
 
   if (res.status !== 'success') {
-    // do something
     return;
   }
 
@@ -89,7 +81,6 @@ async function renderProducts(options) {
   document.querySelectorAll('.edit-btn').forEach((btn) => {
     btn.addEventListener('click', function () {
       const id = this.dataset.id;
-      //   console.log(id);
       editProduct(id);
     });
   });
@@ -97,7 +88,6 @@ async function renderProducts(options) {
   document.querySelectorAll('.delete-btn').forEach((btn) => {
     btn.addEventListener('click', function () {
       const id = this.dataset.id;
-      //   console.log(id);
       deleteProduct(id);
     });
   });
@@ -128,12 +118,7 @@ document
       form.append('productImage', image);
       productData.image = form;
     }
-    // console.log(productData.image);
-
-    // if (!name || !price || !stock) {
-    //   alert("Please fill all required fields");
-    //   return;
-    // }
+    
 
     let create = true;
     if (productId) create = false;
@@ -161,7 +146,6 @@ document
 // Edit
 async function editProduct(productId) {
   const res = await getProductById(productId);
-  //   const product = products.find(product => product.id === productId);
   const product = res.data;
   document.getElementById('modalTitle').textContent = 'Edit Product';
   document.getElementById('productName').value = product.name;
@@ -181,7 +165,6 @@ document.getElementById('addProductBtn').addEventListener('click', () => {
 });
 
 async function addProduct() {
-  //   const product = products.find(product => product.id === productId);
 
   document.getElementById('productId').value = null;
   document.getElementById('modalTitle').textContent = 'Add Product';
@@ -199,10 +182,7 @@ async function addProduct() {
 // Delete
 async function deleteProduct(id) {
   if (confirm('Are you sure?')) {
-    // products.splice(index, 1);
-    // localStorage.setItem('products', JSON.stringify(products));
-    // location.reload();
-
+    
     const res = await deleteProductById(id);
 
     if (res.status === 'success') {
@@ -243,16 +223,3 @@ searchInput.addEventListener(
   }, 300),
 );
 
-// document.getElementById("searchInput").addEventListener("input", function () {
-//   const value = this.value.toLowerCase();
-
-//   //   const filtered = products.filter((p) => p.name.toLowerCase().includes(value));
-
-//   renderProducts(filtered);
-// });
-
-// Logout
-// function logout() {
-//   localStorage.removeItem("role");
-//   window.location.href = "login.html";
-// }

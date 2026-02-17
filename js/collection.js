@@ -52,9 +52,9 @@ async function updateUserUI() {
     }
   });
 }
-// ───────────────────────────────────────────────
+
 //  Imports
-// ───────────────────────────────────────────────
+
 import { isAuthenticated, getCurrentUser, logout } from '../data/auth.js';
 
 import { getAllProducts } from '../data/products.js';
@@ -65,9 +65,9 @@ import {
   addToCart,
 } from '../data/cart.js';
 
-// ───────────────────────────────────────────────
+
 //  Variables
-// ───────────────────────────────────────────────
+
 const productsContainer = document.getElementById('products');
 const cartCountEl = document.getElementById('cart-count');
 const categoryCards = document.querySelectorAll('.category-card');
@@ -75,9 +75,9 @@ const authLink = document.getElementById('auth-link');
 
 let currentUser = null;
 
-// ───────────────────────────────────────────────
+
 //  Check authentication & update UI (name in navbar)
-// ───────────────────────────────────────────────
+
 async function checkAuthAndUpdateUI() {
   const authResult = isAuthenticated();
   if (authResult.status === 'success') {
@@ -101,9 +101,8 @@ async function checkAuthAndUpdateUI() {
   }
 }
 
-// ───────────────────────────────────────────────
+
 //  Update cart count badge
-// ───────────────────────────────────────────────
 async function updateCartCount() {
   const cartCountEl = document.getElementById('cart-count');
   if (!cartCountEl) return;
@@ -122,9 +121,9 @@ async function updateCartCount() {
   }
 }
 
-// ───────────────────────────────────────────────
+
 //  Load and display products for a category
-// ───────────────────────────────────────────────
+
 async function showProducts(options) {
   productsContainer.innerHTML = `
       <div class="col-12 text-center py-5">
@@ -184,9 +183,9 @@ async function showProducts(options) {
   });
 }
 
-// ───────────────────────────────────────────────
+
 //  Event Listeners
-// ───────────────────────────────────────────────
+
 productsContainer.addEventListener('click', async (e) => {
   if (!e.target.classList.contains('add-to-cart')) return;
 
@@ -211,7 +210,7 @@ productsContainer.addEventListener('click', async (e) => {
 
     if (res.status === 'success') {
       alert('Added to cart!');
-      await updateCartCount(); // Update badge immediately
+      await updateCartCount(); 
     } else {
       alert(res.message || 'Failed to add');
     }
@@ -243,9 +242,9 @@ searchForm.addEventListener('submit', (e) => {
   showProducts({ search: searchInput });
 });
 
-// ───────────────────────────────────────────────
+
 //  Page Initialization
-// ───────────────────────────────────────────────
+
 document.addEventListener('DOMContentLoaded', async () => {
   await checkAuthAndUpdateUI();
   await updateCartCount();

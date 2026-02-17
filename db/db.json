@@ -422,7 +422,7 @@
       "price": 154,
       "category": "Accessories",
       "image": "https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=500",
-      "stock": 67,
+      "stock": 63,
       "isNew": false,
       "isBest": true,
       "isFeatured": false,
@@ -2129,6 +2129,28 @@
         "postalCode": "64112"
       },
       "createdAt": "2026-02-13T12:10:11.112Z"
+    },
+    {
+      "id": "2d6a",
+      "userId": "5",
+      "items": [
+        {
+          "productId": "4",
+          "quantity": 4
+        }
+      ],
+      "subtotal": 616,
+      "tax": 86.24000000000001,
+      "totalPrice": 702.24,
+      "status": "Delivered",
+      "shippingInfo": {
+        "fullName": "ahmed",
+        "phone": "01234567898",
+        "address": "Almahdy",
+        "city": "Faiyum",
+        "postalCode": "432"
+      },
+      "createdAt": "2026-02-17T11:15:53.802Z"
     }
   ],
   "carts": [
@@ -2468,6 +2490,16 @@
         },
         {
           "productId": "100",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "3516",
+      "userId": "5",
+      "items": [
+        {
+          "productId": "42",
           "quantity": 1
         }
       ]

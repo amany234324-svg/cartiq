@@ -154,12 +154,10 @@ a .log:hover {
   box-shadow: 0 4px 8px rgba(94, 96, 206, 0.3);
 }
 
-/* إلغاء سهم الدلتا الافتراضي الخاص ببوتستراب (اختياري) */
 .user-profile-btn::after {
   display: none;
 }
 
-/* تنسيق القائمة المنسدلة */
 .dropdown-menu {
   border-radius: 12px;
   padding: 10px;
@@ -340,22 +338,7 @@ a .log:hover {
   font-weight: bold;
 }
 
-/* .box{
-    width: 300px;
-    margin: 20px 10px;
-} */
-/* .btn-cart{
-  
-  font-size: 14px;
-  padding: 6px 8px;
-  
-} */
-/* .btn-cart:hover{
-    
-    color: #ffffff;
-    background-color: var(--pink);
-} */
-/* <!-- products--> */
+
 .category-card {
   background: #fff;
   border-radius: 15px;
@@ -377,15 +360,14 @@ a .log:hover {
 .add-to-cart {
   font-size: 15px;
   width: 100%;
-  /* text-align: center; */
+ 
   margin-right: 300px;
 }
 .add-to-cart:hover {
   background-color: var(--pink);
-  /* transform: translateY(-6px); */
 }
 
-/* Home page product cards – same size for all */
+/* Home page */
 #products-container .grid-item .card {
   display: flex;
   flex-direction: column;

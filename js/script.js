@@ -1,4 +1,4 @@
-// ================= IMPORT API   ) =================
+//  IMPORT API  
 import { isAuthenticated, getCurrentUser, hasRole } from '../data/auth.js';
 import { getAllProducts } from '../data/products.js';
 import { getCurrentUserCartPopulated, addToCart } from '../data/cart.js';
@@ -25,7 +25,7 @@ export async function updateCartCount() {
   }
 }
 
-// ================= DOM READY =================
+//  DOM READY 
 document.addEventListener('DOMContentLoaded', () => {
   const productsContainer = document.getElementById('products-container');
   const cartCountEl = document.getElementById('cart-count');
@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
     return;
   }
 
-  // ================= LOAD NAVBAR =================
+  //  LOAD NAVBAR 
   fetch('navbar.html')
     .then((res) => res.text())
     .then((data) => {
@@ -77,32 +77,13 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // ================= LOGOUT =================
+  //  LOGOUT 
   window.logout = function () {
     localStorage.clear();
     window.location.reload();
   };
 
-  // ================= UPDATE CART COUNT =================
-  // async function updateCartCount() {
-  //   const cartCountEl = document.getElementById("cart-count");
-  //   if (!cartCountEl) return;
-
-  //   const cartRes = await getCurrentUserCartPopulated();
-
-  //   if (cartRes.status === "success" && cartRes.data?.items) {
-  //     const total = cartRes.data.items.reduce(
-  //       (sum, item) => sum + item.quantity,
-  //       0
-  //     );
-
-  //     cartCountEl.textContent = total;
-  //   } else {
-  //     cartCountEl.textContent = "0";
-  //   }
-  // }
-  // ================= LOAD PRODUCTS =================
-  async function loadProducts(options = {}) {
+   async function loadProducts(options = {}) {
     productsContainer.innerHTML = `
     <div class="col-12 text-center py-5">
       <div class="spinner-border"></div>
@@ -144,7 +125,7 @@ document.addEventListener('DOMContentLoaded', () => {
       productsContainer.insertAdjacentHTML('beforeend', html);
     });
 
-    // Initialize Isotope after images load so layout height is correct (fixes "only images visible" on first load)
+    //  Isotope after images load 
     const $gridEl = $('#products-container');
     $gridEl.imagesLoaded(function () {
       const $grid = $gridEl.isotope({
@@ -162,7 +143,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // ================= ADD TO CART =================
+  //  ADD TO CART 
   productsContainer.addEventListener('click', async (e) => {
     if (!e.target.classList.contains('add-to-cart')) return;
 

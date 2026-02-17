@@ -31,7 +31,6 @@
 
   <div class="card shadow-sm mb-4">
     <div class="card-body" id="orderInfo">
-      <!-- سيتم ملؤه ديناميكيًا -->
     </div>
   </div>
 
@@ -39,7 +38,6 @@
     <div class="card-body">
       <h5 class="mb-3">Items in this Order</h5>
       <div id="orderItems" class="row g-3">
-        <!-- سيتم ملؤه ديناميكيًا -->
       </div>
     </div>
   </div>
@@ -74,16 +72,13 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   try {
 
-    // const res = await fetch(`${API_BASE}/orders/${orderId}`);
     const res = await getOrderById(orderId)
     if (res.status !== 'success') {
-      // throw new Error(res.status === 404 ? "Order not found" : "Failed to load order");
       throw new Error(res.message);
     }
 
     const order = await res.data;
 
-    // ──────────────── عرض معلومات الطلب ────────────────
     const date = new Date(order.createdAt).toLocaleDateString('en-GB', {
       day: 'numeric', month: 'short', year: 'numeric'
     });
@@ -124,12 +119,10 @@ document.addEventListener("DOMContentLoaded", async () => {
       </address>
     `;
 
-    // ──────────────── عرض المنتجات ────────────────
     if (!order.items || order.items.length === 0) {
       orderItems.innerHTML = '<p class="text-muted">No items found in this order.</p>';
     } else {
       orderItems.innerHTML = order.items.map(item => {
-        // حالتان رئيسيتان: item كـ string أو كـ object
         if (typeof item === 'string') {
           return `
             <div class="col-12">
@@ -140,7 +133,6 @@ document.addEventListener("DOMContentLoaded", async () => {
           `;
         }
 
-        // لو object (الحالة المفضلة)
         return `
           <div class="col-12 col-md-6 col-lg-4">
             <div class="card h-100 border-0 shadow-sm">
