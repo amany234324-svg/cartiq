@@ -377,13 +377,27 @@
       "email": "tiffany.adams@email.com",
       "password": "hashed_password_54",
       "role": "customer"
+    },
+    {
+      "id": "5775",
+      "name": "Bemin Raafat",
+      "email": "beminraafat@gmail.com",
+      "password": "123456Aa@",
+      "role": "customer"
+    },
+    {
+      "id": "f4c2",
+      "name": "Bemin Raafat",
+      "email": "beminrafat@gmail.com",
+      "password": "12345Aa@",
+      "role": "customer"
     }
   ],
   "products": [
     {
       "id": "1",
       "name": "Sony Portable Projector",
-      "price": "271",
+      "price": "274",
       "category": "Electronics",
       "image": "https://images.unsplash.com/photo-1478720568477-152d9b164e26?w=500",
       "stock": "24",
@@ -422,7 +436,7 @@
       "price": 154,
       "category": "Accessories",
       "image": "https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=500",
-      "stock": 63,
+      "stock": 57,
       "isNew": false,
       "isBest": true,
       "isFeatured": false,
@@ -511,18 +525,6 @@
       "isBest": true,
       "isFeatured": false,
       "description": "Classic canvas sneakers with iconic design, comfortable for everyday wear."
-    },
-    {
-      "id": "12",
-      "name": "Fossil Leather Messenger Bag",
-      "price": 148,
-      "category": "Accessories",
-      "image": "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=500",
-      "stock": 23,
-      "isNew": false,
-      "isBest": false,
-      "isFeatured": false,
-      "description": "Vintage-style leather messenger bag with multiple compartments."
     },
     {
       "id": "13",
@@ -1579,6 +1581,15 @@
       "isBest": false,
       "isFeatured": false,
       "description": "Handcrafted American leather tote with brass hardware and interior pockets."
+    },
+    {
+      "id": "36f4",
+      "name": "Perfum",
+      "price": "200",
+      "stock": "4",
+      "category": "Accessories",
+      "description": "jsjkjk",
+      "image": "img\\products\\product-1771332258511.jpg"
     }
   ],
   "orders": [
@@ -2131,26 +2142,48 @@
       "createdAt": "2026-02-13T12:10:11.112Z"
     },
     {
-      "id": "2d6a",
-      "userId": "5",
+      "id": "9475",
+      "userId": "5775",
       "items": [
         {
           "productId": "4",
-          "quantity": 4
+          "quantity": 5
         }
       ],
-      "subtotal": 616,
-      "tax": 86.24000000000001,
-      "totalPrice": 702.24,
-      "status": "Delivered",
+      "subtotal": 770,
+      "tax": 107.80000000000001,
+      "totalPrice": 877.8,
+      "status": "Pending",
       "shippingInfo": {
-        "fullName": "ahmed",
-        "phone": "01234567898",
-        "address": "Almahdy",
-        "city": "Faiyum",
-        "postalCode": "432"
+        "fullName": "Bemin Raafat",
+        "phone": "01286971732",
+        "address": "Cairo",
+        "city": "Cairo",
+        "postalCode": "11341"
       },
-      "createdAt": "2026-02-17T11:15:53.802Z"
+      "createdAt": "2026-02-17T12:25:08.589Z"
+    },
+    {
+      "id": "0a86",
+      "userId": "f4c2",
+      "items": [
+        {
+          "productId": "4",
+          "quantity": 5
+        }
+      ],
+      "subtotal": 770,
+      "tax": 107.80000000000001,
+      "totalPrice": 877.8,
+      "status": "Paid",
+      "shippingInfo": {
+        "fullName": "Bemin Raafat",
+        "phone": "01286971732",
+        "address": "Cairo",
+        "city": "Cairo",
+        "postalCode": "1111"
+      },
+      "createdAt": "2026-02-17T12:40:23.698Z"
     }
   ],
   "carts": [
@@ -2490,16 +2523,6 @@
         },
         {
           "productId": "100",
-          "quantity": 1
-        }
-      ]
-    },
-    {
-      "id": "3516",
-      "userId": "5",
-      "items": [
-        {
-          "productId": "42",
           "quantity": 1
         }
       ]

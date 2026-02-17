@@ -1,7 +1,11 @@
 import { hasRole } from '../data/auth.js';
 
-if (hasRole('customer').status !== 'success') {
-  window.location.href = 'login.html';
+// if (hasRole('customer').status !== 'success') {
+//   window.location.href = 'login.html';
+// }
+
+if (hasRole('admin').status === 'success') {
+  window.location.href = 'admin-dashboard.html';
 }
 
 // Load navbar dynamically
@@ -65,7 +69,6 @@ import {
   addToCart,
 } from '../data/cart.js';
 
-
 //  Variables
 
 const productsContainer = document.getElementById('products');
@@ -74,7 +77,6 @@ const categoryCards = document.querySelectorAll('.category-card');
 const authLink = document.getElementById('auth-link');
 
 let currentUser = null;
-
 
 //  Check authentication & update UI (name in navbar)
 
@@ -101,7 +103,6 @@ async function checkAuthAndUpdateUI() {
   }
 }
 
-
 //  Update cart count badge
 async function updateCartCount() {
   const cartCountEl = document.getElementById('cart-count');
@@ -120,7 +121,6 @@ async function updateCartCount() {
     cartCountEl.textContent = '0';
   }
 }
-
 
 //  Load and display products for a category
 
@@ -183,7 +183,6 @@ async function showProducts(options) {
   });
 }
 
-
 //  Event Listeners
 
 productsContainer.addEventListener('click', async (e) => {
@@ -210,7 +209,7 @@ productsContainer.addEventListener('click', async (e) => {
 
     if (res.status === 'success') {
       alert('Added to cart!');
-      await updateCartCount(); 
+      await updateCartCount();
     } else {
       alert(res.message || 'Failed to add');
     }
@@ -241,7 +240,6 @@ searchForm.addEventListener('submit', (e) => {
 
   showProducts({ search: searchInput });
 });
-
 
 //  Page Initialization
 
