@@ -119,7 +119,7 @@
           <span id="subtotal">EGP 0.00</span>
         </div>
         <div class="summary-row">
-          <span>Tax (10%):</span>
+          <span>Tax (14%):</span>
           <span id="tax">EGP 0.00</span>
         </div>
         <div class="summary-row total-row">
@@ -168,11 +168,9 @@
           const user = userRes.data;
           const firstName = user.name.split(' ')[0];
 
-          // نبحث عن عنصر تسجيل الدخول فقط
           const authContainer = document.getElementById('auth-link');
 
           if (authContainer) {
-            // نستبدل رابط "Login" فقط بالـ Dropdown، دون المساس بالأيقونات المجاورة
             authContainer.outerHTML = `
         <div class="dropdown d-inline-block">
           <button class="user-profile-btn dropdown-toggle" type="button" id="userMenu" data-bs-toggle="dropdown" aria-expanded="false">
@@ -303,7 +301,7 @@
 
         updateSummary(subtotal);
         checkoutBtn.disabled = false;
-        updateCartCount(); // ← مهم جداً
+        updateCartCount(); 
       }
 
       // ================= CHANGE QUANTITY =================

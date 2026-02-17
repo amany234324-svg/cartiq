@@ -133,11 +133,9 @@
           const user = userRes.data;
           const firstName = user.name.split(' ')[0];
 
-          // نبحث عن عنصر تسجيل الدخول فقط
           const authContainer = document.getElementById('auth-link');
 
           if (authContainer) {
-            // نستبدل رابط "Login" فقط بالـ Dropdown، دون المساس بالأيقونات المجاورة
             authContainer.outerHTML = `
         <div class="dropdown d-inline-block">
           <button class="user-profile-btn dropdown-toggle" type="button" id="userMenu" data-bs-toggle="dropdown" aria-expanded="false">
@@ -179,9 +177,7 @@
         loadingEl.style.display = 'block';
 
         try {
-          // const res = await fetch(`${API_BASE}/orders`);
           const res = await getCurrentUserOrders();
-          // const data = await res.json();
           const data = res.data;
           loadingEl.style.display = 'none';
 
@@ -246,7 +242,6 @@
       }
 
       // ======== DELETE ORDER ========
-      // ======== DELETE ORDER ========
       window.deleteOrder = async function (orderId) {
         if (
           !confirm('Are you sure you want to delete this order permanently?')
@@ -257,23 +252,16 @@
         try {
           console.log(`Attempting to delete order #${orderId}`);
 
-          // const res = await fetch(`${API_BASE}/orders/${orderId}`, {
-          //   method: "DELETE",
-          //   headers: {
-          //     "Content-Type": "application/json"
-          //   }
-          // });
+          
 
           const res = await deleteOrder(orderId);
 
           console.log('Delete response status:', res.status);
 
           if (res.status === 'success') {
-            // نجاح → إعادة تحميل القائمة
             alert('Order deleted successfully');
-            await loadOrders(); // انتظر إعادة التحميل
+            await loadOrders(); 
           } else if (res.status === 'fail') {
-            // alert("Order not found (maybe already deleted)");
             alert(res.message);
             await loadOrders();
           } else {

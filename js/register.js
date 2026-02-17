@@ -35,10 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
       .getElementById('confirmPassword')
       ?.value.trim();
 
-    // if (!name || !email || !password || !confirmPassword) {
-    //   showError("All fields are required.");
-    //   return;
-    // }
+    
     const validatedEmail = validateEmail(email);
     console.log(validatedEmail);
     if (!validatedEmail.valid) {
@@ -53,10 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
-    // if (password.length < 6) {
-    //   showError("Password must be at least 6 characters.");
-    //   return;
-    // }
+    
 
     if (password !== confirmPassword) {
       showError('Passwords do not match.');
@@ -78,7 +72,6 @@ document.addEventListener('DOMContentLoaded', () => {
         result?.ok
       ) {
         console.log('Registration successful!');
-        // localStorage.setItem("userName", result.data?.name || name);
         window.location.href = 'Home.html';
       } else {
         const msg = result?.message || result?.error || 'Registration failed';

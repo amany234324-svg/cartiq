@@ -88,7 +88,6 @@ async function openOrderModal(order, customerName) {
   document.getElementById('modalTotal').textContent =
     order.totalPrice.toFixed(2);
 
-  // عرض المنتجات داخل المودال
   const itemsDiv = document.getElementById('modalItems');
   itemsDiv.innerHTML = order.items
     .map(
@@ -101,13 +100,11 @@ async function openOrderModal(order, customerName) {
     )
     .join('');
 
-  // تفعيل زرار التحديث داخل المودال
   const updateBtn = document.querySelector('#orderModal .btn-primary');
   updateBtn.onclick = async () => {
     const newStatus = document.getElementById('modalStatus').value;
     const updateRes = await updateOrderById(order.id, { status: newStatus });
     if (updateRes.status === 'success') {
-      // alert('Order status updated!');
       modal.hide();
       loadOrders();
     }

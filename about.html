@@ -30,7 +30,7 @@
           -apple-system,
           sans-serif;
         background: #f8f9fc;
-        padding-top: 90px; /* مساحة للـ Navbar الثابت */
+        padding-top: 90px; 
       }
 
       /* --- Navbar Styling --- */
@@ -68,7 +68,7 @@
         background: var(--primary) !important;
       }
 
-      /* --- Icons & Badges (الأيقونات المكبرة) --- */
+      /* --- Icons & Badges --- */
       .btn-icon {
         width: 50px;
         height: 50px;
@@ -83,7 +83,7 @@
       }
 
       .btn-icon i {
-        font-size: 1.65rem !important; /* تكبير الأيقونة */
+        font-size: 1.65rem !important; 
       }
 
       .btn-icon:hover {
@@ -97,7 +97,7 @@
         right: 0;
         background-color: var(--primary) !important;
         color: white;
-        font-size: 0.85rem !important; /* تكبير الرقم */
+        font-size: 0.85rem !important;
         font-weight: 700;
         min-width: 22px;
         height: 22px;
@@ -266,7 +266,7 @@
       if (hasRole('customer').status !== 'success') {
         window.location.href = 'login.html';
       }
-      // تأثير سكرول الناف بار
+      
       window.addEventListener('scroll', function () {
         const nav = document.getElementById('mainNavbar');
         if (window.scrollY > 50) {

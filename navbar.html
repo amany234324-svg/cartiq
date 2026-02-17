@@ -63,9 +63,8 @@
       white-space: nowrap;
     }
 
-    /* --- تعديل حجم الأيقونات --- */
     .btn-icon {
-      width: 50px; /* زيادة حجم منطقة الضغط */
+      width: 50px; 
       height: 50px;
       border-radius: 50%;
       display: flex;
@@ -78,7 +77,7 @@
     }
 
     .btn-icon i {
-      font-size: 1.6rem !important; /* تكبير حجم القلب والشنطة */
+      font-size: 1.6rem !important;
     }
 
     .btn-icon:hover {
@@ -86,10 +85,9 @@
       color: var(--primary);
     }
 
-    /* --- تعديل حجم الرقم (Badge) --- */
     .badge {
       background-color: var(--primary) !important;
-      font-size: 0.85rem !important; /* تكبير الخط */
+      font-size: 0.85rem !important;
       font-weight: 700;
       min-width: 22px; 
       height: 22px;
@@ -97,7 +95,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      border: 2px solid white; /* لبروز الرقم */
+      border: 2px solid white; 
     }
 
     .navbar-toggler {
@@ -109,14 +107,14 @@
       box-shadow: none;
     }
 
-    /* --- ضبط التجاوب مع جميع الشاشات --- */
+    
     @media (max-width: 991px) {
       .navbar-brand img {
-        width: 40px; /* تصغير اللوجو قليلاً في الموبايل */
+        width: 40px; 
       }
       
       .nav-btns {
-        gap: 0.5rem !important; /* تقليل المسافات في الموبايل */
+        gap: 0.5rem !important; 
       }
 
       .navbar-collapse {
@@ -133,13 +131,13 @@
       }
       
       .btn-icon i {
-        font-size: 1.4rem !important; /* حجم متوازن للموبايل */
+        font-size: 1.4rem !important; 
       }
     }
 
     @media (max-width: 400px) {
         .auth-link span {
-            display: none; /* إخفاء كلمة Login في الشاشات الصغيرة جداً والاكتفاء بالأيقونة إذا أردتِ */
+            display: none; 
         }
     }
   </style>
@@ -150,8 +148,8 @@
   <div class="container">
 
     <a class="navbar-brand d-flex align-items-center" href="home.html">
-      <img src="img/logo.png" alt="Attire" width="48" class="me-2">
-      <span>Attire</span>
+      <img src="logo.png" alt="Attire" width="48" class="me-2">
+      <span>Cartiq</span>
     </a>
 
     <div class="nav-btns order-lg-2 d-flex align-items-center gap-2 gap-lg-4 ms-auto ms-lg-0">
@@ -160,10 +158,10 @@
         <i class="bi bi-person-circle fs-4 d-lg-none"></i> <span class="d-none d-sm-inline">Login</span>
       </a>
 
-      <a href="#" class="btn-icon" title="Wishlist">
+      <!-- <a href="#" class="btn-icon" title="Wishlist">
         <i class="bi bi-heart"></i>
         <span class="position-absolute top-11 start-100 translate-middle badge rounded-pill" id="wishlist-count">0</span>
-      </a>
+      </a> -->
 
       <a href="cart.html" class="btn-icon position-relative" title="Shopping Cart">
         <i class="bi bi-bag"></i>
@@ -180,7 +178,7 @@
         <li class="nav-item"><a class="nav-link " href="home.html">Home</a></li>
         <li class="nav-item"><a class="nav-link" href="collection.html">Products</a></li>
         <li class="nav-item"><a class="nav-link" href="customer-order.html">Orders</a></li>
-        <li class="nav-item"><a class="nav-link" href="blogs.html">Blogs</a></li>
+        <!-- <li class="nav-item"><a class="nav-link" href="blogs.html">Blogs</a></li> -->
         <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
       </ul>
     </div>
@@ -189,7 +187,7 @@
 </nav>
 
 <script>
-  // تأثير التمرير (إضافة كلاس scrolled)
+  
   window.addEventListener('scroll', function() {
     const nav = document.getElementById('mainNavbar');
     if (window.scrollY > 50) {
